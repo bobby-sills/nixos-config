@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
 	nixpkgs.config.allowUnfree = true;
 
@@ -26,5 +26,6 @@
 		gdu
 		brightnessctl
 		ttyper
+		inputs.helium-nix.packages.x86_64-linux.default
 	];
 }

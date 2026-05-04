@@ -26,8 +26,5 @@
 		shellAliases = {
 			btw = "echo i use nixos, btw";
 		};
-		initExtra = ''
-			export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent"
-		'';
 	};
 }
