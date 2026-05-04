@@ -44,6 +44,8 @@
 	xwayland.enable = true;
   };
 
+  security.pam.services.hyprlock = {};
+
 
 
   users.users.bobby = {
