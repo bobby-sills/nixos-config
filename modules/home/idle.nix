@@ -1,5 +1,7 @@
 { ... }:
 {
+	services.batsignal.enable = true;
+
 	programs.hyprlock.enable = true;
 
 	services.hypridle = {
