@@ -28,6 +28,7 @@
 		gdu
 		brightnessctl
 		ttyper
+		mpv
 		inputs.helium-nix.packages.x86_64-linux.default
 	];
 }
