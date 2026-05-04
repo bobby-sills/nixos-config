@@ -118,8 +118,7 @@
 				"$mainMod, Return, exec, $terminal"
 				"$mainMod, C, killactive,"
 				"$mainMod, M, exit,"
-				"$mainMod, E, exec, $fileManager"
-				"$mainMod, V, togglefloating,"
+					"$mainMod, V, togglefloating,"
 				"$mainMod, Space, exec, $menu"
 				"$mainMod, L, exec, hyprlock"
 				"$mainMod SHIFT, L, exec, systemctl suspend"
@@ -154,6 +153,7 @@
 				"$mainMod, mouse_down, workspace, e+1"
 				"$mainMod, mouse_up, workspace, e-1"
 				"$mainMod, BackSpace, exec, makoctl dismiss"
+				"$mainMod, Y, exec, $fileManager"
 			];
 
 			bindm = [
