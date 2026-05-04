@@ -12,5 +12,12 @@
 	];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+	nix.gc = {
+		automatic = true;
+		dates = "weekly";
+		options = "--delete-older-than 14d --keep-last 3";
+	};
+
 	system.stateVersion = "25.11";
 }
