@@ -19,7 +19,7 @@
 		enable = true;
 		settings.user = {
 			name = "Bobby Sills";
-			email = "backsideofdawn@gmail.com";
+			email = "bobbysills@bobbysills.dev";
 		};
 	};
 	programs.bash = {
