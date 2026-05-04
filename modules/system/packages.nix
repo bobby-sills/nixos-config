@@ -12,6 +12,8 @@
 
 	programs.firefox.enable = true;
 
+	programs.obs-studio.enable = true;
+
 	environment.systemPackages = with pkgs; [
 		vim
 		wget

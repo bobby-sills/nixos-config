@@ -153,7 +153,7 @@
 				"$mainMod SHIFT, S, movetoworkspace, special:magic"
 				"$mainMod, mouse_down, workspace, e+1"
 				"$mainMod, mouse_up, workspace, e-1"
-				"$mainMod, Delete, exec, makoctl dismiss"
+				"$mainMod, BackSpace, exec, makoctl dismiss"
 			];
 
 			bindm = [
