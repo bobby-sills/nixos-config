@@ -115,12 +115,14 @@
 			};
 
 			bind = [
-				"$mainMod, Q, exec, $terminal"
+				"$mainMod, Return, exec, $terminal"
 				"$mainMod, C, killactive,"
 				"$mainMod, M, exit,"
 				"$mainMod, E, exec, $fileManager"
 				"$mainMod, V, togglefloating,"
-				"$mainMod, R, exec, $menu"
+				"$mainMod, Space, exec, $menu"
+				"$mainMod, L, exec, hyprlock"
+				"$mainMod SHIFT, L, exec, systemctl suspend"
 				"$mainMod, P, pseudo,"
 				"$mainMod, J, togglesplit,"
 				"$mainMod, left, movefocus, l"
