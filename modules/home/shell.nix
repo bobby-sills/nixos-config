@@ -19,6 +19,8 @@
 		};
 	};
 
+	services.ssh-agent.enable = true;
+
 	programs.bash = {
 		enable = true;
 		shellAliases = {
