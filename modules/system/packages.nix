@@ -29,6 +29,7 @@
 		brightnessctl
 		ttyper
 		mpv
+		bluetui
 		inputs.helium-nix.packages.x86_64-linux.default
 	];
 }
