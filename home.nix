@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+
 	home.username = "bobby";
 	home.homeDirectory = "/home/bobby";
 	home.stateVersion = "25.11";
@@ -15,6 +17,11 @@
 			sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw
 		'')
 	];
+	programs.nixvim = {
+		enable = true;
+		defaultEditor = true;
+	};
+
 	programs.git = {
 		enable = true;
 		settings.user = {
