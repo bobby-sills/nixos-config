@@ -211,7 +211,6 @@
 			general = {
 				gaps_in = 5;
 				gaps_out = 20;
-				no_gaps_when_only = 1;
 				border_size = 2;
 				"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
 				"col.inactive_border" = "rgba(595959aa)";
@@ -361,6 +360,11 @@
 				", XF86AudioPause, exec, playerctl play-pause"
 				", XF86AudioPlay, exec, playerctl play-pause"
 				", XF86AudioPrev, exec, playerctl previous"
+			];
+
+			workspace = [
+				"w[tv1], gapsout:0, gapsin:0"
+				"f[1], gapsout:0, gapsin:0"
 			];
 
 			windowrule = [
