@@ -38,5 +38,8 @@
 		python3
 		inputs.helium-nix.packages.x86_64-linux.default
 		beeper
+		pipes
+		cbonsai
+		unimatrix
 	];
 }
