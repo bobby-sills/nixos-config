@@ -28,6 +28,7 @@
 		gdu
 		brightnessctl
 		ttyper
+		hyprshot
 		mpv
 		bluetui
 		impala
