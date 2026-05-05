@@ -45,6 +45,7 @@
 		enable = true;
 		shellAliases = {
 			btw = "echo i use nixos, btw";
+			unimatrix = "unimatrix -c green -b -s 96 -l o";
 		};
 	};
 
