@@ -1,7 +1,7 @@
 { ... }:
 {
 	home.file.".config/wallpapers/calvin-and-hobbes.jpg".source =
-		../../wallpapers/calvin and hobbes wallpaper.jpg;
+		../../wallpapers/calvin-and-hobbes.jpg;
 
 	services.hyprpaper = {
 		enable = true;
