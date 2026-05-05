@@ -47,4 +47,9 @@
 			btw = "echo i use nixos, btw";
 		};
 	};
+
+	programs.fzf = {
+		enable = true;
+		enableBashIntegration = true;
+	};
 }
