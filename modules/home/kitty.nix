@@ -3,9 +3,9 @@
 	programs.kitty = {
 		enable = true;
 		settings = {
-			# Gruvbox Dark theme
+			# Gruvbox Dark Hard theme
 			# https://github.com/wdomitrz/kitty_gruvbox_theme
-			background            = "#282828";
+			background            = "#1d2021";
 			foreground            = "#ebdbb2";
 			selection_background  = "#ebdbb2";
 			selection_foreground  = "#928374";
