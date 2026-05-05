@@ -154,6 +154,7 @@
 				"$mainMod, mouse_up, workspace, e-1"
 				"$mainMod, BackSpace, exec, makoctl dismiss"
 				"$mainMod, Y, exec, $fileManager"
+				"$mainMod, W, exec, pkill -SIGUSR1 waybar"
 			];
 
 			bindm = [
