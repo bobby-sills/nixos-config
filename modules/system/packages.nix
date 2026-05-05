@@ -32,6 +32,7 @@
 		mpv
 		bluetui
 		impala
+		spotify-player
 		inputs.helium-nix.packages.x86_64-linux.default
 	];
 }

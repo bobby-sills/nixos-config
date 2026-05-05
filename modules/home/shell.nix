@@ -4,10 +4,30 @@
 		(pkgs.writeShellScriptBin "rebuild" ''
 			set -e
 			cd ~/nixos-dotfiles
-			git add -A
-			git diff --cached --stat
-			git commit -m "''${1:-update config}"
+
+			PUSH=0
+			NO_COMMIT=0
+			MSG="update config"
+
+			while [[ $# -gt 0 ]]; do
+				case "$1" in
+					-p|--push) PUSH=1; shift ;;
+					-n|--no-commit) NO_COMMIT=1; shift ;;
+					*) MSG="$1"; shift ;;
+				esac
+			done
+
+			if [[ $NO_COMMIT -eq 0 ]]; then
+				git add -A
+				git diff --cached --stat
+				git commit -m "$MSG"
+			fi
+
 			sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw
+
+			if [[ $PUSH -eq 1 ]]; then
+				git push
+			fi
 		'')
 	];
 
