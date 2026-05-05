@@ -129,11 +129,7 @@
 				"$mainMod, J, movefocus, d"
 				"$mainMod, K, movefocus, u"
 				"$mainMod, L, movefocus, r"
-				"$mainMod SHIFT, H, resizeactive, -40 0"
-				"$mainMod SHIFT, J, resizeactive, 0 40"
-				"$mainMod SHIFT, K, resizeactive, 0 -40"
-				"$mainMod SHIFT, L, resizeactive, 40 0"
-				"$mainMod, 1, workspace, 1"
+					"$mainMod, 1, workspace, 1"
 				"$mainMod, 2, workspace, 2"
 				"$mainMod, 3, workspace, 3"
 				"$mainMod, 4, workspace, 4"
@@ -162,6 +158,13 @@
 				"$mainMod, BackSpace, exec, makoctl dismiss"
 				"$mainMod, Y, exec, $fileManager"
 				"$mainMod, W, exec, pkill -SIGUSR1 waybar"
+			];
+
+			binde = [
+				"$mainMod SHIFT, H, resizeactive, -40 0"
+				"$mainMod SHIFT, J, resizeactive, 0 40"
+				"$mainMod SHIFT, K, resizeactive, 0 -40"
+				"$mainMod SHIFT, L, resizeactive, 40 0"
 			];
 
 			bindm = [
