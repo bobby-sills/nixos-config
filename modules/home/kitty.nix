@@ -1,0 +1,61 @@
+{ ... }:
+{
+	programs.kitty = {
+		enable = true;
+		settings = {
+			# Gruvbox Dark theme
+			# https://github.com/wdomitrz/kitty_gruvbox_theme
+			background            = "#282828";
+			foreground            = "#ebdbb2";
+			selection_background  = "#ebdbb2";
+			selection_foreground  = "#928374";
+			cursor                = "#928374";
+			cursor_text_color     = "background";
+
+			url_color             = "#83a598";
+
+			visual_bell_color     = "#8ec07c";
+			bell_border_color     = "#8ec07c";
+
+			active_border_color   = "#d3869b";
+			inactive_border_color = "#665c54";
+
+			active_tab_foreground   = "#fbf1c7";
+			active_tab_background   = "#665c54";
+			inactive_tab_foreground = "#a89984";
+			inactive_tab_background = "#3c3836";
+
+			# Black (bg3/bg4)
+			color0  = "#665c54";
+			color8  = "#7c6f64";
+
+			# Red
+			color1  = "#cc241d";
+			color9  = "#fb4934";
+
+			# Green
+			color2  = "#98971a";
+			color10 = "#b8bb26";
+
+			# Yellow
+			color3  = "#d79921";
+			color11 = "#fabd2f";
+
+			# Blue
+			color4  = "#458588";
+			color12 = "#83a598";
+
+			# Purple
+			color5  = "#b16286";
+			color13 = "#d3869b";
+
+			# Aqua
+			color6  = "#689d6a";
+			color14 = "#8ec07c";
+
+			# White (fg4/fg3)
+			color7  = "#a89984";
+			color15 = "#bdae93";
+		};
+	};
+}

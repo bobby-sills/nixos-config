@@ -8,6 +8,7 @@
 		./modules/home/waybar.nix
 		./modules/home/hyprland.nix
 		./modules/home/hyprpaper.nix
+		./modules/home/kitty.nix
 	];
 
 	home.username = "bobby";
