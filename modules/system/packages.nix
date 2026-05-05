@@ -33,6 +33,9 @@
 		bluetui
 		impala
 		spotify-player
+		ripgrep
+		gh
+		python3
 		inputs.helium-nix.packages.x86_64-linux.default
 	];
 }
