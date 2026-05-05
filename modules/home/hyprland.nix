@@ -94,6 +94,7 @@
 			misc = {
 				force_default_wallpaper = 0;
 				disable_hyprland_logo = false;
+				animate_manual_resizes = true;
 			};
 
 			input = {
@@ -120,10 +121,14 @@
 				"$mainMod, M, exit,"
 					"$mainMod, V, togglefloating,"
 				"$mainMod, Space, exec, $menu"
-				"$mainMod, L, exec, hyprlock"
-				"$mainMod SHIFT, L, exec, systemctl suspend"
+				"$mainMod, Escape, exec, hyprlock"
+				"$mainMod SHIFT, Escape, exec, systemctl suspend"
 				"$mainMod, P, pseudo,"
-				"$mainMod, J, togglesplit,"
+				"$mainMod, T, togglesplit,"
+				"$mainMod, H, movefocus, l"
+				"$mainMod, J, movefocus, d"
+				"$mainMod, K, movefocus, u"
+				"$mainMod, L, movefocus, r"
 				"$mainMod, left, movefocus, l"
 				"$mainMod, right, movefocus, r"
 				"$mainMod, up, movefocus, u"
