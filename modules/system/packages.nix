@@ -4,7 +4,7 @@
 
 	users.users.bobby = {
 		isNormalUser = true;
-		extraGroups = [ "wheel" "video" ];
+		extraGroups = [ "wheel" "video" "networkmanager" ];
 		packages = with pkgs; [
 			tree
 		];
@@ -30,6 +30,7 @@
 		ttyper
 		mpv
 		bluetui
+		impala
 		inputs.helium-nix.packages.x86_64-linux.default
 	];
 }
