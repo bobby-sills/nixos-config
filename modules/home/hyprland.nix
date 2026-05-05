@@ -4,7 +4,7 @@
 		enable = true;
 		xwayland.enable = true;
 		settings = {
-			monitor = ",preferred,auto,auto";
+			monitor = ",preferred,auto,1.25";
 
 			"$terminal" = "kitty";
 			"$fileManager" = "kitty -e yazi";
@@ -202,6 +202,16 @@
 
 		extraConfig = ''
 			gesture = 3, horizontal, workspace
+
+			bind = $mainMod, O, submap, browser
+
+			submap = browser
+			bind = , B, exec, helium --profile-directory=Default
+			bind = , B, submap, reset
+			bind = , S, exec, helium --profile-directory=Profile 1
+			bind = , S, submap, reset
+			bind = , escape, submap, reset
+			submap = reset
 		'';
 	};
 }
