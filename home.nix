@@ -7,6 +7,7 @@
 		./modules/home/idle.nix
 		./modules/home/waybar.nix
 		./modules/home/hyprland.nix
+		./modules/home/hyprpaper.nix
 	];
 
 	home.username = "bobby";
