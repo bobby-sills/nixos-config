@@ -5,7 +5,6 @@
 	programs.nixvim = {
 		enable = true;
 		defaultEditor = true;
-		package = pkgs.neovim-nightly;
 
 		globals = {
 			mapleader = " ";
