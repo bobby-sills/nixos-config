@@ -8,8 +8,10 @@
 		settings = {
 			preload = [ "${config.home.homeDirectory}/.config/wallpapers/calvin-and-hobbes.jpg" ];
 			wallpaper = [
-				"eDP-1,${config.home.homeDirectory}/.config/wallpapers/calvin-and-hobbes.jpg"
-				",${config.home.homeDirectory}/.config/wallpapers/calvin-and-hobbes.jpg"
+				{
+					monitor = "eDP-1";
+					path = "${config.home.homeDirectory}/.config/wallpapers/calvin-and-hobbes.jpg";
+				}
 			];
 			splash = false;
 		};
