@@ -201,17 +201,38 @@
 				"f[1], gapsout:0, gapsin:0"
 			];
 
-			windowrulev2 = [
-				"bordersize 0, floating:0, onworkspace:w[tv1]"
-				"rounding 0, floating:0, onworkspace:w[tv1]"
-				"bordersize 0, floating:0, onworkspace:f[1]"
-				"rounding 0, floating:0, onworkspace:f[1]"
+			windowrule = [
+				{
+					name = "suppress-maximize-events";
+					"match:class" = ".*";
+					suppress_event = "maximize";
+				}
+				{
+					name = "fix-xwayland-drags";
+					"match:class" = "^$";
+					"match:title" = "^$";
+					"match:xwayland" = true;
+					"match:float" = true;
+					"match:fullscreen" = false;
+					"match:pin" = false;
+					no_focus = true;
+				}
+				{
+					name = "no-gaps-wtv1";
+					"match:float" = false;
+					"match:workspace" = "w[tv1]";
+					border_size = 0;
+					rounding = 0;
+				}
+				{
+					name = "no-gaps-f1";
+					"match:float" = false;
+					"match:workspace" = "f[1]";
+					border_size = 0;
+					rounding = 0;
+				}
 			];
 
-			windowrule = [
-				"suppressevent maximize, class:.*"
-				"nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-			];
 		};
 
 		extraConfig = ''
