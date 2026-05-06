@@ -5,6 +5,7 @@
 	programs.nixvim = {
 		enable = true;
 		defaultEditor = true;
+		package = pkgs.neovim-nightly;
 
 		globals = {
 			mapleader = " ";
@@ -23,17 +24,14 @@
 
 		colorschemes.gruvbox.enable = true;
 
-		plugins.lspconfig = {
-			enable = true;
-			servers = {
-				jsonls.enable = true;
-				dartls.enable = true;
-			};
-		};
+		plugins.lspconfig.enable = true;
 
 		extraPlugins = [ pkgs.vimPlugins.kitty-scrollback-nvim ];
 
 		extraConfigLua = ''
+			vim.lsp.enable('jsonls')
+			vim.lsp.enable('dartls')
+
 			require('kitty-scrollback').setup({
 				{
 					status_window = {
