@@ -222,7 +222,7 @@
 			submap = browser
 			bind = , H, exec, helium --profile-directory=Default
 			bind = , H, submap, reset
-			bind = , S, exec, helium --profile-directory=Profile 1
+			bind = , S, exec, helium --profile-directory="Profile 1"
 			bind = , S, submap, reset
 			bind = , escape, submap, reset
 			submap = reset
