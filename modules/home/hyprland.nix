@@ -14,6 +14,7 @@
 			exec-once = [
 				"hyprctl setcursor Adwaita 24"
 				"waybar"
+				"hyprsunset"
 			];
 
 			env = [
@@ -189,6 +190,10 @@
 				",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
 				",F6, exec, brightnessctl -e4 -n2 set 5%+"
 				",F5, exec, brightnessctl -e4 -n2 set 5%-"
+				"$mainMod, XF86MonBrightnessUp, exec, hyprctl hyprsunset temperature +500"
+				"$mainMod, XF86MonBrightnessDown, exec, hyprctl hyprsunset temperature -500"
+				"$mainMod, F6, exec, hyprctl hyprsunset temperature +500"
+				"$mainMod, F5, exec, hyprctl hyprsunset temperature -500"
 			];
 
 			bindl = [

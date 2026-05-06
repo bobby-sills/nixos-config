@@ -42,5 +42,6 @@
 		pipes
 		cbonsai
 		unimatrix
+		hyprsunset
 	];
 }
