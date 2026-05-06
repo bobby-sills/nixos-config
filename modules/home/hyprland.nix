@@ -164,7 +164,7 @@
 				"$mainMod, BackSpace, exec, makoctl dismiss"
 				"$mainMod, Y, exec, $fileManager"
 				"$mainMod, W, exec, pkill -SIGUSR1 waybar"
-				"$mainMod, F, fakefullscreen,"
+				"$mainMod, F, fullscreenstate, 0, 2"
 				"$mainMod SHIFT, F, fullscreen, 0"
 			];
 
