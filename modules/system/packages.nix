@@ -21,7 +21,7 @@
 		waybar
 		kitty
 		git
-		exa
+		eza
 		hyprpaper
 		claude-code
 		wofi
