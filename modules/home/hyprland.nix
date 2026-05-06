@@ -1,5 +1,38 @@
 { ... }:
 {
+	home.file = {
+		".config/hypr/animations" = {
+			source = ./animations;
+			recursive = true;
+		};
+		".local/bin/hypr-anim-toggle" = {
+			executable = true;
+			text = ''
+				#!/usr/bin/env bash
+				ANIM_DIR="$HOME/.config/hypr/animations"
+				STATE_FILE="$ANIM_DIR/.index"
+				CURRENT="$ANIM_DIR/current.conf"
+
+				mapfile -t ANIMS < <(find "$ANIM_DIR" -maxdepth 1 -name "*.conf" ! -name "current.conf" | sort)
+				COUNT=''${#ANIMS[@]}
+				[[ $COUNT -eq 0 ]] && exit 1
+
+				IDX=$(cat "$STATE_FILE" 2>/dev/null || echo -1)
+				IDX=$(( (IDX + 1) % COUNT ))
+				echo "$IDX" > "$STATE_FILE"
+
+				ANIM_FILE="''${ANIMS[$IDX]}"
+				cp "$ANIM_FILE" "$CURRENT"
+
+				NAME=$(grep -m1 '# name' "$ANIM_FILE" | sed 's/.*# name "//;s/"//')
+				[[ -z "$NAME" ]] && NAME=$(basename "$ANIM_FILE" .conf)
+
+				hyprctl reload -q
+				notify-send -t 2000 "Animation" "$NAME"
+			'';
+		};
+	};
+
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
@@ -164,6 +197,7 @@
 				"$mainMod SHIFT CTRL, S, exec, hyprshot -m output -o ~/pictures/screenshots"
 				"$mainMod, BackSpace, exec, makoctl dismiss"
 				"$mainMod, Y, exec, $fileManager"
+				"$mainMod, A, exec, hypr-anim-toggle"
 				"$mainMod, W, exec, pkill -SIGUSR1 waybar"
 				"$mainMod, F, fullscreenstate, 0, 2"
 				"$mainMod SHIFT, F, fullscreen, 0"
@@ -243,6 +277,8 @@
 		};
 
 		extraConfig = ''
+			source = ~/.config/hypr/animations/current.conf
+
 			gesture = 3, horizontal, workspace
 
 			bind = $mainMod, O, submap, browser
