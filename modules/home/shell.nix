@@ -45,6 +45,7 @@
 		enable = true;
 		shellAliases = {
 unimatrix = "unimatrix -c green -b -s 96 -l o";
+ls = "eza --icons=always";
 		};
 	};
 
