@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
 	home.pointerCursor = {
-		package = pkgs.adwaita-icon-theme;
-		name = "Adwaita";
+		package = pkgs.apple-cursor;
+		name = "macOS";
 		size = 24;
 		gtk.enable = true;
 	};
