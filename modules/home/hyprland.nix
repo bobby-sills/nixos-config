@@ -1,5 +1,12 @@
-{ ... }:
+{ lib, ... }:
 {
+	home.activation.initHyprAnimation = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+		CURRENT="$HOME/.config/hypr/animations/current.conf"
+		if [[ ! -f "$CURRENT" ]]; then
+			$DRY_RUN_CMD cp "$HOME/.config/hypr/animations/classic.conf" "$CURRENT"
+		fi
+	'';
+
 	home.file = {
 		".config/hypr/animations" = {
 			source = ./animations;
