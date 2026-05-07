@@ -1,4 +1,17 @@
 { pkgs, inputs, ... }:
+let
+  slack-tui = pkgs.buildNpmPackage {
+    pname = "slack-tui";
+    version = "0.2.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "hikalium";
+      repo = "slack-tui";
+      rev = "c6cc127f9091873e5c3a24472f86afeabda639af";
+      hash = "sha256-WuDyhFfrT1fQu5Os74SIXYP8sAiZ/Vk6GpDclEg6duw=";
+    };
+    npmDepsHash = "sha256-xu2BHaxIV5djl4lDdvme/wDDgN+bJnJUfBQGm5OYtLY=";
+  };
+in
 {
 	nixpkgs.config.allowUnfree = true;
 
@@ -43,8 +56,8 @@
 		cbonsai
 		unimatrix
 		hyprsunset
-		yt-dlp
 		deno
 		ffmpeg
+		slack-tui
 	];
 }

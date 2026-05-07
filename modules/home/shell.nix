@@ -59,4 +59,14 @@ ls = "eza --icons=always";
 		enable = true;
 		enableBashIntegration = true;
 	};
+
+	programs.yt-dlp = {
+		enable = true;
+		settings = {
+			write-subs = true;
+			write-auto-subs = true;
+			embed-subs = true;
+			sub-langs = "en.*,en";
+		};
+	};
 }
