@@ -2,8 +2,6 @@
 {
 	programs.kitty = {
 		enable = true;
-		shellIntegration.enableBashIntegration = true;
-		shellIntegration.mode = "no-prompt-mark";
 		font = {
 			name = "Iosevka Nerd Font";
 			size = 12;
