@@ -25,6 +25,7 @@
 		hyprpaper
 		claude-code
 		wofi
+		bemoji
 		yazi
 		gdu
 		brightnessctl
