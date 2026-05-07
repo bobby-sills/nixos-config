@@ -45,5 +45,6 @@
 		hyprsunset
 		deno
 		ffmpeg
+		fastfetch
 	];
 }
