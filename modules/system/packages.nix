@@ -4,11 +4,13 @@
 
 	users.users.bobby = {
 		isNormalUser = true;
-		extraGroups = [ "wheel" "video" "networkmanager" ];
+		extraGroups = [ "wheel" "video" "networkmanager" "nordvpn" ];
 		packages = with pkgs; [
 			tree
 		];
 	};
+
+	services.nordvpn.enable = true;
 
 	programs.firefox.enable = true;
 

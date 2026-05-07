@@ -9,6 +9,7 @@
 		./modules/home/hyprland.nix
 		./modules/home/hyprpaper.nix
 		./modules/home/kitty.nix
+		./modules/home/yazi-filemanager.nix
 	];
 
 	home.username = "bobby";
