@@ -65,6 +65,12 @@ programs.bash.profileExtra = ''
     enableBashIntegration = true;
   };
 
+  programs.yazi = {
+    enable = true;
+    enableBashIntegration = true;
+    shellWrapperName = "y";
+  };
+
   programs.yt-dlp = {
     enable = true;
     settings = {

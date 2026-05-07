@@ -27,7 +27,6 @@
 		wofi
 		bemoji
 		wl-clipboard
-		yazi
 		gdu
 		brightnessctl
 		ttyper
