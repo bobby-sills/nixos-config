@@ -66,7 +66,7 @@ ls = "eza --icons=always";
 			write-subs = true;
 			write-auto-subs = true;
 			embed-subs = true;
-			sub-langs = "en.*,en";
+			sub-langs = "en,en-orig";
 		};
 	};
 }
