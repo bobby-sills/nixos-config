@@ -10,6 +10,7 @@ let
       hash = "sha256-WuDyhFfrT1fQu5Os74SIXYP8sAiZ/Vk6GpDclEg6duw=";
     };
     npmDepsHash = "sha256-xu2BHaxIV5djl4lDdvme/wDDgN+bJnJUfBQGm5OYtLY=";
+    dontNpmBuild = true;
   };
 in
 {
