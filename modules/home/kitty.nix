@@ -2,6 +2,7 @@
 {
 	programs.kitty = {
 		enable = true;
+		shellIntegration.enableBashIntegration = false;
 		font = {
 			name = "Iosevka Nerd Font";
 			size = 12;
