@@ -264,6 +264,8 @@
 			submap = browser
 			bind = , H, exec, helium --profile-directory=Default
 			bind = , H, submap, reset
+			bind = , M, exec, beeper
+			bind = , M, submap, reset
 			bind = , S, exec, helium --profile-directory="Profile 1"
 			bind = , S, submap, reset
 			bind = , B, exec, kitty --class float-75 -e bluetui
