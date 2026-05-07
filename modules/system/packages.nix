@@ -47,5 +47,6 @@
 		deno
 		ffmpeg
 		fastfetch
+		google-chrome
 	];
 }

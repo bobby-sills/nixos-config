@@ -71,6 +71,18 @@ programs.bash.profileExtra = ''
     shellWrapperName = "y";
   };
 
+  xdg.desktopEntries.yazi = {
+    name = "Yazi";
+    exec = "kitty yazi %u";
+    terminal = false;
+    mimeType = [ "inode/directory" ];
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications."inode/directory" = "yazi.desktop";
+  };
+
   programs.yt-dlp = {
     enable = true;
     settings = {
