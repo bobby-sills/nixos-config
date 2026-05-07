@@ -119,7 +119,6 @@
 			bind = [
 				"$mainMod, Return, exec, $terminal"
 				"$mainMod, C, killactive,"
-				"$mainMod, M, exit,"
 					"$mainMod, T, togglefloating,"
 				"$mainMod SHIFT, T, setfloating,"
 				"$mainMod SHIFT, T, resizeactive, exact 50% 50%"

@@ -20,7 +20,9 @@
 			if [[ $NO_COMMIT -eq 0 ]]; then
 				git add -A
 				git diff --cached --stat
-				git commit -m "$MSG"
+				if ! git diff --cached --quiet; then
+					git commit -m "$MSG"
+				fi
 			fi
 
 			sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw
