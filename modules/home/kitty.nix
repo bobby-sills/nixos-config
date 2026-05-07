@@ -2,60 +2,60 @@
 {
 	programs.kitty = {
 		enable = true;
-		settings = {
-			# Gruvbox Dark Hard theme
-			# https://github.com/wdomitrz/kitty_gruvbox_theme
-			background            = "#1d2021";
-			foreground            = "#ebdbb2";
-			selection_background  = "#ebdbb2";
-			selection_foreground  = "#928374";
-			cursor                = "#928374";
-			cursor_text_color     = "background";
-
-			url_color             = "#83a598";
-
-			visual_bell_color     = "#8ec07c";
-			bell_border_color     = "#8ec07c";
-
-			active_border_color   = "#d3869b";
-			inactive_border_color = "#665c54";
-
-			active_tab_foreground   = "#fbf1c7";
-			active_tab_background   = "#665c54";
-			inactive_tab_foreground = "#a89984";
-			inactive_tab_background = "#3c3836";
-
-			# Black (bg3/bg4)
-			color0  = "#665c54";
-			color8  = "#7c6f64";
-
-			# Red
-			color1  = "#cc241d";
-			color9  = "#fb4934";
-
-			# Green
-			color2  = "#98971a";
-			color10 = "#b8bb26";
-
-			# Yellow
-			color3  = "#d79921";
-			color11 = "#fabd2f";
-
-			# Blue
-			color4  = "#458588";
-			color12 = "#83a598";
-
-			# Purple
-			color5  = "#b16286";
-			color13 = "#d3869b";
-
-			# Aqua
-			color6  = "#689d6a";
-			color14 = "#8ec07c";
-
-			# White (fg4/fg3)
-			color7  = "#a89984";
-			color15 = "#bdae93";
+		font = {
+			name = "Iosevka Nerd Font";
+			size = 13.0;
 		};
-	};
+		settings = {
+			cursor_shape        = "beam";
+			enable_audio_bell   = "yes";
+			background_opacity  = "0.96";
+			background_blur     = 0;
+			allow_remote_control = "socket-only";
+			listen_on           = "unix:/tmp/kitty";
+			shell_integration   = "enabled";
+
+			# Gruvbox Dark theme
+			selection_foreground = "#ebdbb2";
+			selection_background = "#d65d0e";
+			background           = "#282828";
+			foreground           = "#ebdbb2";
+			cursor               = "#bdae93";
+			cursor_text_color    = "#665c54";
+			url_color            = "#458588";
+
+			color0  = "#3c3836";
+			color1  = "#cc241d";
+			color2  = "#98971a";
+			color3  = "#d79921";
+			color4  = "#458588";
+			color5  = "#b16286";
+			color6  = "#689d6a";
+			color7  = "#a89984";
+			color8  = "#928374";
+			color9  = "#fb4934";
+			color10 = "#b8bb26";
+			color11 = "#fabd2f";
+			color12 = "#83a598";
+			color13 = "#d3869b";
+			color14 = "#8ec07c";
+			color15 = "#fbf1c7";
+		};
+		keybindings = {
+			"alt+shift+1"  = "goto_tab 1";
+			"alt+shift+2"  = "goto_tab 2";
+			"alt+shift+3"  = "goto_tab 3";
+			"alt+shift+4"  = "goto_tab 4";
+			"alt+shift+5"  = "goto_tab 5";
+			"alt+shift+6"  = "goto_tab 6";
+			"alt+shift+7"  = "goto_tab 7";
+			"alt+shift+8"  = "goto_tab 8";
+			"alt+shift+9"  = "goto_tab 9";
+			"alt+shift+0"  = "goto_tab 10";
+			"ctrl+tab"     = "goto_tab -1";
+			"ctrl+shift+t" = "new_tab_with_cwd";
+			"ctrl+shift+w" = "close_tab";
+			"ctrl+y"       = "copy_last_command_output";
+		};
+};
 }
