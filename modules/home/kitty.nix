@@ -2,6 +2,7 @@
 {
 	programs.kitty = {
 		enable = true;
+		shellIntegration.enableBashIntegration = true;
 		font = {
 			name = "Iosevka Nerd Font";
 			size = 12;
@@ -13,7 +14,6 @@
 			background_blur     = 0;
 			allow_remote_control = "socket-only";
 			listen_on           = "unix:/tmp/kitty";
-			shell_integration   = "enabled";
 
 			# Gruvbox Dark theme
 			selection_foreground = "#ebdbb2";
