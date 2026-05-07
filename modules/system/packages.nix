@@ -10,8 +10,6 @@
 		];
 	};
 
-	services.nordvpn.enable = true;
-
 	programs.firefox.enable = true;
 
 	programs.obs-studio.enable = true;

@@ -15,10 +15,6 @@ helium-nix = {
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nordvpn-flake = {
-      url = "github:m-lourenco0/nordvpn-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs: {
@@ -27,7 +23,7 @@ helium-nix = {
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        inputs.nordvpn-flake.nixosModules.nordvpn
+        ./modules/system/nordvpn.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
