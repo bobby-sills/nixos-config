@@ -167,7 +167,7 @@
 				"$mainMod, W, exec, pkill -SIGUSR1 waybar"
 				"$mainMod, F, fullscreenstate, 0, 2"
 				"$mainMod SHIFT, F, fullscreen, 0"
-				"$mainMod, E, exec, bemoji"
+				"$mainMod, E, exec, bemoji -t"
 			];
 
 			binde = [
