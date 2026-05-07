@@ -2,7 +2,10 @@
 {
 	programs.kitty = {
 		enable = true;
-		font.name = "Iosevka Nerd Font";
+		font = {
+			name = "Iosevka Nerd Font";
+			size = 12;
+		};
 		settings = {
 			cursor_shape        = "beam";
 			enable_audio_bell   = "yes";
