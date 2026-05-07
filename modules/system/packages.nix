@@ -43,5 +43,8 @@
 		cbonsai
 		unimatrix
 		hyprsunset
+		yt-dlp
+		deno
+		ffmpeg
 	];
 }

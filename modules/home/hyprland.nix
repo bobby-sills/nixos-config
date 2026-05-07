@@ -1,45 +1,5 @@
-{ lib, ... }:
+{ ... }:
 {
-	home.activation.initHyprAnimation = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-		CURRENT="$HOME/.config/hypr/animations/current.conf"
-		if [[ ! -f "$CURRENT" ]]; then
-			$DRY_RUN_CMD cp --no-preserve=mode,ownership "$HOME/.config/hypr/animations/classic.conf" "$CURRENT"
-		fi
-	'';
-
-	home.file = {
-		".config/hypr/animations" = {
-			source = ./animations;
-			recursive = true;
-		};
-		".local/bin/hypr-anim-toggle" = {
-			executable = true;
-			text = ''
-				#!/usr/bin/env bash
-				ANIM_DIR="$HOME/.config/hypr/animations"
-				STATE_FILE="$ANIM_DIR/.index"
-				CURRENT="$ANIM_DIR/current.conf"
-
-				mapfile -t ANIMS < <(find "$ANIM_DIR" -maxdepth 1 -name "*.conf" ! -name "current.conf" | sort)
-				COUNT=''${#ANIMS[@]}
-				[[ $COUNT -eq 0 ]] && exit 1
-
-				IDX=$(cat "$STATE_FILE" 2>/dev/null || echo -1)
-				IDX=$(( (IDX + 1) % COUNT ))
-				echo "$IDX" > "$STATE_FILE"
-
-				ANIM_FILE="''${ANIMS[$IDX]}"
-				cp --no-preserve=mode,ownership "$ANIM_FILE" "$CURRENT"
-
-				NAME=$(grep -m1 '# name' "$ANIM_FILE" | sed 's/.*# name "//;s/"//')
-				[[ -z "$NAME" ]] && NAME=$(basename "$ANIM_FILE" .conf)
-
-				hyprctl reload -q
-				hyprctl notify 0 2000 0 "Animation: $NAME"
-			'';
-		};
-	};
-
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
@@ -133,7 +93,7 @@
 			};
 
 			misc = {
-				force_default_wallpaper = -1;
+				force_default_wallpaper = 0;
 				disable_hyprland_logo = false;
 				animate_manual_resizes = true;
 			};
@@ -204,7 +164,6 @@
 				"$mainMod SHIFT CTRL, S, exec, hyprshot -m output -o ~/pictures/screenshots"
 				"$mainMod, BackSpace, exec, makoctl dismiss"
 				"$mainMod, Y, exec, $fileManager"
-				"$mainMod, A, exec, /home/bobby/.local/bin/hypr-anim-toggle"
 				"$mainMod, W, exec, pkill -SIGUSR1 waybar"
 				"$mainMod, F, fullscreenstate, 0, 2"
 				"$mainMod SHIFT, F, fullscreen, 0"
@@ -284,8 +243,6 @@
 		};
 
 		extraConfig = ''
-			source = ~/.config/hypr/animations/current.conf
-
 			gesture = 3, horizontal, workspace
 
 			bind = $mainMod, O, submap, browser
