@@ -23,17 +23,17 @@ let
             os.wait()
 
     class FileManager(dbus.service.Object):
-        @dbus.service.method("org.freedesktop.FileManager1", in_signature='ass', out_signature='')
+        @dbus.service.method("org.freedesktop.FileManager1", in_signature='ass', out_signature=''')
         def ShowFolders(self, uris, startupId):
             for uri in uris:
                 open_yazi(uri)
 
-        @dbus.service.method("org.freedesktop.FileManager1", in_signature='ass', out_signature='')
+        @dbus.service.method("org.freedesktop.FileManager1", in_signature='ass', out_signature=''')
         def ShowItems(self, uris, startupId):
             for uri in uris:
                 open_yazi(uri, select=True)
 
-        @dbus.service.method("org.freedesktop.FileManager1", in_signature='ass', out_signature='')
+        @dbus.service.method("org.freedesktop.FileManager1", in_signature='ass', out_signature=''')
         def ShowItemProperties(self, uris, startupId):
             for uri in uris:
                 open_yazi(uri, select=True)
