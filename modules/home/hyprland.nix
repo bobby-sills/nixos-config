@@ -210,6 +210,20 @@
 
 			windowrule = [
 				{
+					name = "float-75";
+					"match:class" = "float-75";
+					float = true;
+					size = "75% 75%";
+					center = true;
+				}
+				{
+					name = "float-50";
+					"match:class" = "float-50";
+					float = true;
+					size = "50% 50%";
+					center = true;
+				}
+				{
 					name = "suppress-maximize-events";
 					"match:class" = ".*";
 					suppress_event = "maximize";
@@ -252,6 +266,10 @@
 			bind = , H, submap, reset
 			bind = , S, exec, helium --profile-directory="Profile 1"
 			bind = , S, submap, reset
+			bind = , B, exec, kitty --class float-75 -e bluetui
+			bind = , B, submap, reset
+			bind = , W, exec, kitty --class float-50 -e impala
+			bind = , W, submap, reset
 			bind = , escape, submap, reset
 			submap = reset
 		'';
