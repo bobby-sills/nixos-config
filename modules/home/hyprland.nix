@@ -129,7 +129,7 @@
 				"$mainMod, Space, exec, $menu"
 				"$mainMod, Escape, exec, hyprlock"
 				"$mainMod SHIFT, Escape, exec, systemctl suspend"
-				"$mainMod, P, pseudo,"
+
 				"$mainMod, T, togglesplit,"
 				"$mainMod, H, movefocus, l"
 				"$mainMod, J, movefocus, d"
