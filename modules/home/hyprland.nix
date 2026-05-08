@@ -158,6 +158,7 @@
 				"$mainMod, S, togglespecialworkspace, magic"
 				"$mainMod SHIFT, S, movetoworkspace, special:magic"
 				"$mainMod, M, togglespecialworkspace, spotify"
+				"$mainMod, B, togglespecialworkspace, beeper"
 				"$mainMod, mouse_down, workspace, e+1"
 				"$mainMod, mouse_up, workspace, e-1"
 				"$mainMod CTRL, S, exec, hyprshot -m region -o ~/Pictures/screenshots"
@@ -265,7 +266,7 @@
 			submap = browser
 			bind = , H, exec, helium --profile-directory=Default
 			bind = , H, submap, reset
-			bind = , M, exec, beeper
+			bind = , M, exec, [workspace special:beeper silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] beeper
 			bind = , M, submap, reset
 			bind = , S, exec, helium --profile-directory="Profile 1"
 			bind = , S, submap, reset
