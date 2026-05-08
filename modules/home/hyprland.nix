@@ -271,6 +271,8 @@
 			bind = , H, submap, reset
 			bind = , M, exec, [workspace special:beeper silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] beeper
 			bind = , M, submap, reset
+			bind = , M, exec, [workspace special:beeper silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] beeper
+			bind = , M, submap, reset
 			bind = , S, exec, helium --profile-directory="Profile 1"
 			bind = , S, submap, reset
 			bind = , B, exec, kitty --class float-50 -e bluetui
