@@ -169,6 +169,9 @@
 				"$mainMod, F, fullscreenstate, 0, 2"
 				"$mainMod SHIFT, F, fullscreen, 0"
 				"$mainMod, E, exec, bemoji"
+				"$mainMod, comma, exec, playerctl previous"
+				"$mainMod, period, exec, playerctl next"
+				"$mainMod, slash, exec, playerctl play-pause"
 			];
 
 			binde = [

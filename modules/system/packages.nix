@@ -49,5 +49,6 @@
     fastfetch
     google-chrome
     hledger
+    playerctl
   ];
 }
