@@ -211,14 +211,14 @@
 			windowrule = [
 				{
 					name = "float-75";
-					"match:class" = "float-75";
+					"match:initialclass" = "float-75";
 					float = true;
 					size = "75% 75%";
 					center = true;
 				}
 				{
 					name = "float-50";
-					"match:class" = "float-50";
+					"match:initialclass" = "float-50";
 					float = true;
 					size = "50% 50%";
 					center = true;
