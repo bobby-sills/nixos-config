@@ -43,6 +43,7 @@
     pipes
     cbonsai
     unimatrix
+    htop
     hyprsunset
     deno
     ffmpeg
