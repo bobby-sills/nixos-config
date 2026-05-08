@@ -211,16 +211,16 @@
 			windowrule = [
 				{
 					name = "float-75";
-					"match:initialclass" = "float-75";
+					"match:class" = "float-75";
 					float = true;
-					size = "75% 75%";
+					size = "(monitor_w*0.75) (monitor_h*0.75)";
 					center = true;
 				}
 				{
 					name = "float-50";
-					"match:initialclass" = "float-50";
+					"match:class" = "float-50";
 					float = true;
-					size = "50% 50%";
+					size = "(monitor_w*0.5) (monitor_h*0.5)";
 					center = true;
 				}
 				{
