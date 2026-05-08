@@ -273,7 +273,7 @@
 			bind = , B, submap, reset
 			bind = , W, exec, kitty --class float-50 -e impala
 			bind = , W, submap, reset
-			bind = , P, exec, [workspace special:spotify silent; float; size 50% 50%; center] kitty -e spotify_player
+			bind = , P, exec, [workspace special:spotify silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] kitty -e spotify_player
 			bind = , P, submap, reset
 			bind = , escape, submap, reset
 			submap = reset
