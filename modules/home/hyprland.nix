@@ -1,4 +1,18 @@
-{ ... }:
+{ lib, ... }:
+let
+  animNames = [
+    "animations-classic"
+    "animations-dynamic"
+    "animations-end4"
+    "animations-fast"
+    "animations-high"
+    "animations-moving"
+    "animations-smooth"
+    "default"
+    "disabled"
+    "standard"
+  ];
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -51,36 +65,6 @@
           passes = 1;
           vibrancy = 0.1696;
         };
-      };
-
-      animations = {
-        enabled = true;
-        bezier = [
-          "easeOutQuint,0.23,1,0.32,1"
-          "easeInOutCubic,0.65,0.05,0.36,1"
-          "linear,0,0,1,1"
-          "almostLinear,0.5,0.5,0.75,1"
-          "quick,0.15,0,0.1,1"
-        ];
-        animation = [
-          "global,1,10,default"
-          "border,1,5.39,easeOutQuint"
-          "windows,1,4.79,easeOutQuint"
-          "windowsIn,1,4.1,easeOutQuint,popin 87%"
-          "windowsOut,1,1.49,linear,popin 87%"
-          "fadeIn,1,1.73,almostLinear"
-          "fadeOut,1,1.46,almostLinear"
-          "fade,1,3.03,quick"
-          "layers,1,3.81,easeOutQuint"
-          "layersIn,1,4,easeOutQuint,fade"
-          "layersOut,1,1.5,linear,fade"
-          "fadeLayersIn,1,1.79,almostLinear"
-          "fadeLayersOut,1,1.39,almostLinear"
-          "workspaces,1,1.94,almostLinear,fade"
-          "workspacesIn,1,1.21,almostLinear,fade"
-          "workspacesOut,1,1.94,almostLinear,fade"
-          "zoomFactor,1,7,quick"
-        ];
       };
 
       dwindle = {
@@ -168,6 +152,7 @@
         "$mainMod, W, exec, pkill -SIGUSR1 waybar"
         "$mainMod, F, fullscreenstate, 0, 2"
         "$mainMod SHIFT, F, fullscreen, 0"
+        "$mainMod, A, exec, ~/.config/hypr/cycle-animations.sh"
         "$mainMod, E, exec, bemoji"
         "$mainMod, comma, exec, playerctl previous"
         "$mainMod, period, exec, playerctl next"
@@ -270,6 +255,8 @@
     };
 
     extraConfig = ''
+      source = ~/.config/hypr/current-animation.conf
+
       gesture = 3, horizontal, workspace
 
       bind = $mainMod, O, submap, browser
@@ -291,4 +278,49 @@
       submap = reset
     '';
   };
+
+  home.file = (lib.listToAttrs (map (name: {
+    name = ".config/hypr/animations/${name}.conf";
+    value = { source = ./animations/${name}.conf; };
+  }) animNames)) // {
+    ".config/hypr/cycle-animations.sh" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        ANIM_DIR="$HOME/.config/hypr/animations"
+        STATE_FILE="$HOME/.cache/hypr-anim-current"
+        CURRENT_CONF="$HOME/.config/hypr/current-animation.conf"
+
+        mapfile -t FILES < <(ls "$ANIM_DIR"/*.conf | sort)
+        COUNT=''${#FILES[@]}
+
+        NEXT_IDX=0
+        if [ -f "$STATE_FILE" ]; then
+          CURRENT=$(cat "$STATE_FILE")
+          for i in "''${!FILES[@]}"; do
+            if [ "''${FILES[$i]}" = "$CURRENT" ]; then
+              NEXT_IDX=$(( (i + 1) % COUNT ))
+              break
+            fi
+          done
+        fi
+
+        NEXT_FILE="''${FILES[$NEXT_IDX]}"
+        NAME=$(basename "$NEXT_FILE" .conf)
+
+        cp "$NEXT_FILE" "$CURRENT_CONF"
+        echo "$NEXT_FILE" > "$STATE_FILE"
+
+        hyprctl reload
+        hyprctl notify 1 3000 "rgb(88ccff)" "Animation: $NAME"
+      '';
+    };
+  };
+
+  home.activation.initHyprAnimation = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [ ! -f "$HOME/.config/hypr/current-animation.conf" ]; then
+      cp "${./animations/default.conf}" "$HOME/.config/hypr/current-animation.conf"
+      chmod 644 "$HOME/.config/hypr/current-animation.conf"
+    fi
+  '';
 }
