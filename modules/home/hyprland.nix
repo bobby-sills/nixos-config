@@ -157,6 +157,7 @@
 				"$mainMod SHIFT, 0, movetoworkspace, 10"
 				"$mainMod, S, togglespecialworkspace, magic"
 				"$mainMod SHIFT, S, movetoworkspace, special:magic"
+				"$mainMod, M, togglespecialworkspace, spotify"
 				"$mainMod, mouse_down, workspace, e+1"
 				"$mainMod, mouse_up, workspace, e-1"
 				"$mainMod CTRL, S, exec, hyprshot -m region -o ~/Pictures/screenshots"
@@ -272,6 +273,8 @@
 			bind = , B, submap, reset
 			bind = , W, exec, kitty --class float-50 -e impala
 			bind = , W, submap, reset
+			bind = , P, exec, [workspace special:spotify silent; float; size 50% 50%; center] kitty -e spotify_player
+			bind = , P, submap, reset
 			bind = , escape, submap, reset
 			submap = reset
 		'';
