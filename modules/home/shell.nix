@@ -54,7 +54,7 @@ programs.bash.profileExtra = ''
     shellAliases = {
       unimatrix = "unimatrix -c green -b -s 96 -l o";
       ls = "eza --icons=always";
-      hl = "hledger -f ~/finance/main.journal";
+      hl = "hledger -f ~/finance/main.journal --style border";
     };
     initExtra = ''
       export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
