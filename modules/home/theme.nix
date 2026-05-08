@@ -7,7 +7,10 @@
 		gtk.enable = true;
 	};
 
-	services.mako.enable = true;
+	services.mako = {
+		enable = true;
+		defaultTimeout = 5000;
+	};
 
 	gtk = {
 		enable = true;
