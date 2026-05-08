@@ -51,5 +51,6 @@
     google-chrome
     hledger
     playerctl
+    corefonts
   ];
 }
