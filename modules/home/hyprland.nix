@@ -229,6 +229,14 @@
 					center = true;
 				}
 				{
+					name = "beeper-special";
+					"match:class" = "beepertexts";
+					workspace = "special:beeper";
+					float = true;
+					size = "(monitor_w*0.5) (monitor_h*0.5)";
+					center = true;
+				}
+				{
 					name = "suppress-maximize-events";
 					"match:class" = ".*";
 					suppress_event = "maximize";
@@ -269,9 +277,7 @@
 			submap = browser
 			bind = , H, exec, helium --profile-directory=Default
 			bind = , H, submap, reset
-			bind = , M, exec, [workspace special:beeper silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] beeper
-			bind = , M, submap, reset
-			bind = , M, exec, [workspace special:beeper silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] beeper
+			bind = , M, exec, beeper
 			bind = , M, submap, reset
 			bind = , S, exec, helium --profile-directory="Profile 1"
 			bind = , S, submap, reset
