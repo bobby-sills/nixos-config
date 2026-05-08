@@ -23,7 +23,6 @@ helium-nix = {
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        ./modules/system/nordvpn.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {

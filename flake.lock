@@ -135,33 +135,12 @@
         "type": "github"
       }
     },
-    "nordvpn-flake": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1742098294,
-        "narHash": "sha256-kszMKykXU1oZIn8RSDuBwIa5hY5om2wdy32KYgYKzs8=",
-        "owner": "m-lourenco0",
-        "repo": "nordvpn-flake",
-        "rev": "72594cb60df19951ee726dcad24ef0a9c5d29fbc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "m-lourenco0",
-        "repo": "nordvpn-flake",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "helium-nix": "helium-nix",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim",
-        "nordvpn-flake": "nordvpn-flake"
+        "nixvim": "nixvim"
       }
     },
     "systems": {

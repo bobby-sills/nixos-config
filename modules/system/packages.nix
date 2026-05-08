@@ -4,7 +4,7 @@
 
 	users.users.bobby = {
 		isNormalUser = true;
-		extraGroups = [ "wheel" "video" "networkmanager" "nordvpn" ];
+		extraGroups = [ "wheel" "video" "networkmanager" ];
 		packages = with pkgs; [
 			tree
 		];
