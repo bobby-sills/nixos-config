@@ -268,7 +268,7 @@
 			bind = , M, submap, reset
 			bind = , S, exec, helium --profile-directory="Profile 1"
 			bind = , S, submap, reset
-			bind = , B, exec, kitty --class float-75 -e bluetui
+			bind = , B, exec, kitty --class float-50 -e bluetui
 			bind = , B, submap, reset
 			bind = , W, exec, kitty --class float-50 -e impala
 			bind = , W, submap, reset
