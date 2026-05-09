@@ -4,6 +4,7 @@
 	networking.networkmanager.enable = true;
 	networking.networkmanager.wifi.backend = "iwd";
 	networking.wireless.iwd.enable = true;
+	networking.wireless.iwd.settings.General.AddressRandomization = "disabled";
 
 	time.timeZone = "Asia/Bangkok";
 
