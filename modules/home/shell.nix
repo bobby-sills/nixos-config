@@ -80,6 +80,16 @@ programs.bash.profileExtra = ''
     enable = true;
     enableBashIntegration = true;
     shellWrapperName = "y";
+    settings = {
+      opener = {
+        video = [{ run = ''mpv "$@"''; orphan = true; }];
+        audio = [{ run = ''mpv "$@"''; orphan = true; }];
+      };
+      open.rules = [
+        { mime = "video/*"; use = "video"; }
+        { mime = "audio/*"; use = "audio"; }
+      ];
+    };
   };
 
   xdg.desktopEntries.yazi = {
