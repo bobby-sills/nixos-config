@@ -252,17 +252,14 @@ in
           border_size = 0;
           rounding = 0;
         }
-        {
-          name = "no-anim-wofi";
-          "match:class" = "wofi";
-          no_anim = true;
-        }
       ];
 
     };
 
     extraConfig = ''
       source = ~/.config/hypr/current-animation.conf
+
+      layerrule = no_anim, wofi
 
       gesture = 3, horizontal, workspace
 
