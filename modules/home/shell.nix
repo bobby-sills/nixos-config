@@ -94,6 +94,7 @@ programs.bash.profileExtra = ''
       require("pref-by-location"):setup({})
     '';
     settings = {
+      mgr.sort_reverse = true;
       opener = {
         video = [{ run = ''mpv "$@"''; orphan = true; }];
         audio = [{ run = ''mpv "$@"''; orphan = true; }];
