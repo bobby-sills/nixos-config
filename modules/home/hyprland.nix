@@ -255,7 +255,7 @@ in
         {
           name = "no-anim-wofi";
           "match:class" = "wofi";
-          noanim = true;
+          no_anim = true;
         }
       ];
 
