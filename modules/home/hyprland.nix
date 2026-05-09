@@ -252,6 +252,11 @@ in
           border_size = 0;
           rounding = 0;
         }
+        {
+          name = "no-anim-wofi";
+          "match:class" = "wofi";
+          noanim = true;
+        }
       ];
 
     };
