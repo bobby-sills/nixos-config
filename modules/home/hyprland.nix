@@ -144,6 +144,7 @@ in
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
         "$mainMod, P, togglespecialworkspace, spotify"
         "$mainMod, M, togglespecialworkspace, beeper"
+        "$mainMod, Tab, workspace, previous"
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod CTRL, S, exec, hyprshot -m region -o ~/Pictures/screenshots"
