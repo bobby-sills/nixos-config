@@ -53,5 +53,6 @@
     playerctl
     corefonts
     xournalpp
+    anki
   ];
 }
