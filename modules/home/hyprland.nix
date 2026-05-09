@@ -29,6 +29,7 @@ in
         "hyprctl setcursor Adwaita 24"
         "waybar"
         "hyprsunset"
+        "sh -c 'sleep 2 && if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then echo 1; else echo 0; fi > /sys/class/leds/platform::micmute/brightness'"
       ];
 
       env = [
@@ -175,7 +176,7 @@ in
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",XF86AudioMicMute, exec, ~/.config/hypr/mic-mute-toggle.sh"
         ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
         ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
         ",F6, exec, brightnessctl -e4 -n2 set 5%+"
@@ -283,6 +284,18 @@ in
     name = ".config/hypr/animations/${name}.conf";
     value = { source = ./animations/${name}.conf; };
   }) animNames)) // {
+    ".config/hypr/mic-mute-toggle.sh" = {
+      executable = true;
+      text = ''
+        #!/bin/sh
+        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then
+          echo 1 > /sys/class/leds/platform::micmute/brightness
+        else
+          echo 0 > /sys/class/leds/platform::micmute/brightness
+        fi
+      '';
+    };
     ".config/hypr/cycle-animations.sh" = {
       executable = true;
       text = ''
