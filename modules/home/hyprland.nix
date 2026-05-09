@@ -155,7 +155,6 @@ in
         "$mainMod, F, fullscreenstate, 0, 2"
         "$mainMod SHIFT, F, fullscreen, 0"
         "$mainMod, A, exec, ~/.config/hypr/cycle-animations.sh"
-        "$mainMod, equal, exec, ~/.config/hypr/wofi-calc.sh"
         "$mainMod, E, exec, bemoji"
         "$mainMod, comma, exec, playerctl previous"
         "$mainMod, period, exec, playerctl next"
@@ -288,26 +287,6 @@ in
     name = ".config/hypr/animations/${name}.conf";
     value = { source = ./animations/${name}.conf; };
   }) animNames)) // {
-    ".config/hypr/wofi-calc.sh" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        HISTORY="$HOME/.config/qalculate/qalc.result.history"
-        mkdir -p "$(dirname "$HISTORY")"
-        touch "$HISTORY"
-
-        while true; do
-          input=$(tac "$HISTORY" | wofi --dmenu --prompt "= " --lines 10)
-          [ -z "$input" ] && break
-          result=$(qalc -t "$input" 2>/dev/null | tail -1)
-          [ -z "$result" ] && break
-          entry="$input = $result"
-          echo "$entry" >> "$HISTORY"
-          printf '%s' "$result" | wl-copy
-          hyprctl notify 1 4000 "rgb(88ccff)" "$entry"
-        done
-      '';
-    };
     ".config/hypr/mic-mute-toggle.sh" = {
       executable = true;
       text = ''
