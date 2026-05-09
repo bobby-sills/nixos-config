@@ -259,7 +259,7 @@ in
     extraConfig = ''
       source = ~/.config/hypr/current-animation.conf
 
-      layerrule = no_anim, wofi
+      layerrule = no_anim on, wofi
 
       gesture = 3, horizontal, workspace
 
