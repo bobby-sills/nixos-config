@@ -80,6 +80,19 @@ programs.bash.profileExtra = ''
     enable = true;
     enableBashIntegration = true;
     shellWrapperName = "y";
+    plugins = {
+      pref-by-location = pkgs.yaziPlugins.mkYaziPlugin {
+        pname = "pref-by-location";
+        version = "unstable-2025-05-09";
+        src = pkgs.fetchurl {
+          url = "https://github.com/boydaihungst/pref-by-location.yazi/archive/refs/heads/master.tar.gz";
+          hash = "sha256:1x4xb6yf5mq1fk3v7d5fx5rsdfvdlp3b82skpnd57206sd9wzczh";
+        };
+      };
+    };
+    initLua = ''
+      require("pref-by-location"):setup()
+    '';
     settings = {
       opener = {
         video = [{ run = ''mpv "$@"''; orphan = true; }];
