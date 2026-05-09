@@ -91,7 +91,7 @@ programs.bash.profileExtra = ''
       };
     };
     initLua = ''
-      require("pref-by-location"):setup()
+      require("pref-by-location"):setup({})
     '';
     settings = {
       opener = {
