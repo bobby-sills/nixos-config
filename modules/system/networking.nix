@@ -1,10 +1,10 @@
 { ... }:
 {
 	networking.hostName = "nixos";
-	networking.networkmanager.enable = true;
-	networking.networkmanager.wifi.backend = "iwd";
 	networking.wireless.iwd.enable = true;
 	networking.wireless.iwd.settings.General.AddressRandomization = "disabled";
+	networking.interfaces.enp1s0f0.useDHCP = true;
+	networking.interfaces.wlan0.useDHCP = true;
 
 	time.timeZone = "Asia/Bangkok";
 
