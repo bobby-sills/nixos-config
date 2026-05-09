@@ -23,4 +23,9 @@
 			color-scheme = "prefer-dark";
 		};
 	};
+
+	qt = {
+		enable = true;
+		platformTheme.name = "gtk";
+	};
 }
