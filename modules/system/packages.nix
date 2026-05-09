@@ -54,5 +54,6 @@
     corefonts
     xournalpp
     anki
+    libqalculate
   ];
 }
