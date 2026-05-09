@@ -91,8 +91,6 @@ programs.bash.profileExtra = ''
   programs.yt-dlp = {
     enable = true;
     settings = {
-      write-subs = true;
-      write-auto-subs = true;
       embed-subs = true;
       sub-langs = "en,en-orig";
     };

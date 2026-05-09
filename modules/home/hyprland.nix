@@ -36,6 +36,7 @@ in
         "XCURSOR_THEME,Adwaita"
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
+        "TZ,Asia/Bangkok"
       ];
 
       general = {
