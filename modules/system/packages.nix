@@ -51,7 +51,6 @@
     google-chrome
     hledger
     playerctl
-    corefonts
     xournalpp
     anki
   ];
