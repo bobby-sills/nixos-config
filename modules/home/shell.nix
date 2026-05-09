@@ -86,7 +86,7 @@ programs.bash.profileExtra = ''
         version = "unstable-2025-05-09";
         src = pkgs.fetchurl {
           url = "https://github.com/boydaihungst/pref-by-location.yazi/archive/refs/heads/master.tar.gz";
-          hash = "sha256:1x4xb6yf5mq1fk3v7d5fx5rsdfvdlp3b82skpnd57206sd9wzczh";
+          hash = "sha256-uGNihFVF1RnZ6sCAZ+g/kZTkNqWI23UPS2huxElpRng=";
         };
       };
     };
