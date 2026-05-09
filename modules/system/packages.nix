@@ -52,5 +52,6 @@
     hledger
     playerctl
     corefonts
+    xournalpp
   ];
 }
