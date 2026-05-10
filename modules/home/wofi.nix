@@ -1,6 +1,7 @@
 { vars, ... }:
 let
   monoFont = vars.monoFont;
+  gb = import ../gruvbox.nix;
 in
 {
   programs.wofi = {
@@ -13,27 +14,27 @@ in
 
       window {
         margin: 0px;
-        border: 1px solid #928374;
-        background-color: #282828;
+        border: 1px solid ${gb.gray_245};
+        background-color: ${gb.dark0};
       }
 
       #input {
         margin: 5px;
         border: none;
-        color: #ebdbb2;
-        background-color: #1d2021;
+        color: ${gb.light1};
+        background-color: ${gb.dark0_hard};
       }
 
       #inner-box {
         margin: 5px;
         border: none;
-        background-color: #282828;
+        background-color: ${gb.dark0};
       }
 
       #outer-box {
         margin: 5px;
         border: none;
-        background-color: #282828;
+        background-color: ${gb.dark0};
       }
 
       #scroll {
@@ -44,11 +45,11 @@ in
       #text {
         margin: 5px;
         border: none;
-        color: #ebdbb2;
+        color: ${gb.light1};
       }
 
       #entry:selected {
-        background-color: #1d2021;
+        background-color: ${gb.dark0_hard};
       }
     '';
   };
