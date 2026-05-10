@@ -9,7 +9,7 @@ in
     settings = [{
       layer = "top";
       position = "top";
-      spacing = 4;
+      spacing = 0;
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
@@ -41,7 +41,7 @@ in
       };
 
       network = {
-        format-wifi = "{essid} {icon}";
+        format-wifi = "{icon} {essid}";
         format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
         format-ethernet = "{ipaddr} ";
         format-disconnected = "Disconnected 󰤭";
@@ -153,7 +153,7 @@ in
       #network,
       #pulseaudio,
       #tray {
-        padding: 0 10px;
+        padding: 0 16px;
         color: @light1;
       }
 
