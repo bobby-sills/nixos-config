@@ -279,7 +279,6 @@ in
     };
 
     extraConfig = ''
-      # layerrule = no_anim on, match:namespace wofi
 
       gesture = 3, horizontal, workspace
 
@@ -289,6 +288,7 @@ in
       bind = , H, exec, helium --profile-directory=Default
       bind = , H, submap, reset
       bind = , M, exec, beeper
+      bind = , M, togglespecialworkspace, beeper
       bind = , M, submap, reset
       bind = , S, exec, helium --profile-directory="Profile 1"
       bind = , S, submap, reset
@@ -297,6 +297,7 @@ in
       bind = , W, exec, kitty --class float-50 -e impala
       bind = , W, submap, reset
       bind = , P, exec, [workspace special:spotify silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] kitty -e spotify_player
+      bind = , P, togglespecialworkspace, spotify
       bind = , P, submap, reset
       bind = , escape, submap, reset
       submap = reset
