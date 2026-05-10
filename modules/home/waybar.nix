@@ -89,7 +89,7 @@ in
 
       * {
         font-family: "${monoFont.name}", monospace;
-        font-size: ${toString monoFont.size}px;
+        font-size: 17px;
         background-color: transparent;
         min-height: 0;
       }
