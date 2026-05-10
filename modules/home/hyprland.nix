@@ -138,7 +138,7 @@ in
         "$mainMod, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, systemctl suspend"
 
-        "$mainMod, R, togglesplit,"
+        "$mainMod, R, layoutmsg, togglesplit"
         "$mainMod, H, movefocus, l"
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
