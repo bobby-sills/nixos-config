@@ -13,7 +13,7 @@ in
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "network" "cpu" "memory" "battery" "pulseaudio" "clock" "tray" ];
+      modules-right = [ "network" "cpu" "battery" "pulseaudio" "clock" "tray" ];
 
       "hyprland/workspaces" = {
         format = "{id}";
@@ -30,13 +30,13 @@ in
       };
 
       cpu = {
-        format = "{usage}% ";
+        format = "󰍛 {usage}%";
         tooltip = true;
         interval = 2;
       };
 
       memory = {
-        format = "{percentage}% ";
+        format = "󰘚 {percentage}%";
         interval = 5;
       };
 
