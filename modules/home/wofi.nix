@@ -8,7 +8,7 @@ in
     style = ''
       * {
         font-family: "${monoFont.name}", monospace;
-        font-size: ${toString monoFont.size}px;
+        font-size: ${toString (monoFont.size * 4 / 3)}px;
       }
     '';
   };
