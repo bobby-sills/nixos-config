@@ -1,17 +1,6 @@
 { lib, ... }:
 let
-  animNames = [
-    "animations-classic"
-    "animations-dynamic"
-    "animations-end4"
-    "animations-fast"
-    "animations-high"
-    "animations-moving"
-    "animations-smooth"
-    "default"
-    "disabled"
-    "standard"
-  ];
+  gb = import ../gruvbox.nix;
 in
 {
   wayland.windowManager.hyprland = {
@@ -42,8 +31,8 @@ in
         gaps_in = 5;
         gaps_out = 5;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(${gb.bright_orange}ff)";
+        "col.inactive_border" = "rgba(${gb.dark1}aa)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
@@ -81,6 +70,39 @@ in
         force_default_wallpaper = 0;
         disable_hyprland_logo = false;
         animate_manual_resizes = true;
+      };
+
+      animations = {
+        enabled = true;
+        bezier = [
+          "linear, 0, 0, 1, 1"
+          "md3_standard, 0.2, 0, 0, 1"
+          "md3_decel, 0.05, 0.7, 0.1, 1"
+          "md3_accel, 0.3, 0, 0.8, 0.15"
+          "overshot, 0.05, 0.9, 0.1, 1.1"
+          "crazyshot, 0.1, 1.5, 0.76, 0.92"
+          "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
+          "menu_decel, 0.1, 1, 0, 1"
+          "menu_accel, 0.38, 0.04, 1, 0.07"
+          "easeInOutCirc, 0.85, 0, 0.15, 1"
+          "easeOutCirc, 0, 0.55, 0.45, 1"
+          "easeOutExpo, 0.16, 1, 0.3, 1"
+          "softAcDecel, 0.26, 0.26, 0.15, 1"
+          "md2, 0.4, 0, 0.2, 1"
+        ];
+        animation = [
+          "windows, 1, 3, md3_decel, popin 60%"
+          "windowsIn, 1, 3, md3_decel, popin 60%"
+          "windowsOut, 1, 3, md3_accel, popin 60%"
+          "border, 1, 10, default"
+          "fade, 1, 3, md3_decel"
+          "layersIn, 1, 3, menu_decel, slide"
+          "layersOut, 1, 1.6, menu_accel"
+          "fadeLayersIn, 1, 2, menu_decel"
+          "fadeLayersOut, 1, 4.5, menu_accel"
+          "workspaces, 1, 7, menu_decel, slide"
+          "specialWorkspace, 1, 3, md3_decel, slidevert"
+        ];
       };
 
       input = {
@@ -154,7 +176,6 @@ in
         "$mainMod, W, exec, pkill -SIGUSR1 waybar"
         "$mainMod, F, fullscreenstate, 0, 2"
         "$mainMod SHIFT, F, fullscreen, 0"
-        "$mainMod, A, exec, ~/.config/hypr/cycle-animations.sh"
         "$mainMod, E, exec, bemoji"
         "$mainMod, comma, exec, playerctl previous"
         "$mainMod, period, exec, playerctl next"
@@ -257,8 +278,6 @@ in
     };
 
     extraConfig = ''
-      source = ~/.config/hypr/current-animation.conf
-
       # layerrule = no_anim on, match:namespace wofi
 
       gesture = 3, horizontal, workspace
@@ -283,10 +302,7 @@ in
     '';
   };
 
-  home.file = (lib.listToAttrs (map (name: {
-    name = ".config/hypr/animations/${name}.conf";
-    value = { source = ./animations/${name}.conf; };
-  }) animNames)) // {
+  home.file = {
     ".config/hypr/mic-mute-toggle.sh" = {
       executable = true;
       text = ''
@@ -299,44 +315,5 @@ in
         fi
       '';
     };
-    ".config/hypr/cycle-animations.sh" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        ANIM_DIR="$HOME/.config/hypr/animations"
-        STATE_FILE="$HOME/.cache/hypr-anim-current"
-        CURRENT_CONF="$HOME/.config/hypr/current-animation.conf"
-
-        mapfile -t FILES < <(ls "$ANIM_DIR"/*.conf | sort)
-        COUNT=''${#FILES[@]}
-
-        NEXT_IDX=0
-        if [ -f "$STATE_FILE" ]; then
-          CURRENT=$(cat "$STATE_FILE")
-          for i in "''${!FILES[@]}"; do
-            if [ "''${FILES[$i]}" = "$CURRENT" ]; then
-              NEXT_IDX=$(( (i + 1) % COUNT ))
-              break
-            fi
-          done
-        fi
-
-        NEXT_FILE="''${FILES[$NEXT_IDX]}"
-        NAME=$(basename "$NEXT_FILE" .conf)
-
-        cp "$NEXT_FILE" "$CURRENT_CONF"
-        echo "$NEXT_FILE" > "$STATE_FILE"
-
-        hyprctl reload
-        hyprctl notify 1 3000 "rgb(88ccff)" "Animation: $NAME"
-      '';
-    };
   };
-
-  home.activation.initHyprAnimation = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    if [ ! -f "$HOME/.config/hypr/current-animation.conf" ]; then
-      cp "${./animations/default.conf}" "$HOME/.config/hypr/current-animation.conf"
-      chmod 644 "$HOME/.config/hypr/current-animation.conf"
-    fi
-  '';
 }
