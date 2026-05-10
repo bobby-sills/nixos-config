@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  home.sessionVariables = {
-    TZ = "Asia/Bangkok";
-  };
-
   home.packages = [
     (pkgs.writeShellScriptBin "rebuild" ''
       set -e
