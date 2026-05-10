@@ -58,25 +58,18 @@ in
         scroll-step = 5;
       };
 
-	battery: {
-		states: {
-			// "good": 95,
-			warning: 30,
-		critical: 15
-		},
-	format: "{capacity}% {icon}",
-		format-full: "{capacity}% {icon}",
-		format-charging: "{capacity}% ",
-		format-plugged: "{capacity}% ",
-		format-alt: "{time} {icon}",
-		format-icons: [
-			" ",
-			" ",
-			" ",
-			" ",
-			" "
-		]
-	},
+      battery = {
+        states = {
+          warning = 30;
+          critical = 15;
+        };
+        format = "{capacity}% {icon}";
+        format-full = "{capacity}% {icon}";
+        format-charging = "{capacity}% ";
+        format-plugged = "{capacity}% ";
+        format-alt = "{time} {icon}";
+        format-icons = [ " " " " " " " " " " ];
+      };
 
       tray = {
         spacing = 10;
