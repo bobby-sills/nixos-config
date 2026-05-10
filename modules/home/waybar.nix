@@ -76,7 +76,8 @@ in
     }];
 
     style = ''
-      @define-color bg ${gb.dark0}f5;
+      @define-color dark0 ${gb.dark0};
+      @define-color bg alpha(@dark0, 0.96);
       @define-color dark1 ${gb.dark1};
       @define-color light1 ${gb.light1};
       @define-color light4 ${gb.light4};
