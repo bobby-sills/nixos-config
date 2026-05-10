@@ -9,6 +9,7 @@
 		./modules/home/hyprland.nix
 		./modules/home/hyprpaper.nix
 		./modules/home/kitty.nix
+		./modules/home/wofi.nix
 		./modules/home/yazi-filemanager.nix
 		./modules/home/spotify-player.nix
 	];

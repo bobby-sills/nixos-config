@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, vars, ... }:
 {
 	home.pointerCursor = {
 		package = pkgs.apple-cursor;
@@ -9,7 +9,10 @@
 
 	services.mako = {
 		enable = true;
-		settings.default-timeout = 5000;
+		settings = {
+			default-timeout = 5000;
+			font = "${vars.monoFont.name} ${toString vars.monoFont.size}";
+		};
 	};
 
 	gtk = {

@@ -17,10 +17,14 @@ helium-nix = {
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
+  let
+    vars = import ./vars.nix;
+  in
+  {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs vars; };
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
@@ -28,7 +32,7 @@ helium-nix = {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = { inherit inputs; };
+            extraSpecialArgs = { inherit inputs vars; };
             users.bobby = import ./home.nix;
             backupFileExtension = "backup";
           };

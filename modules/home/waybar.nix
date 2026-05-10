@@ -1,4 +1,7 @@
-{ ... }:
+{ vars, ... }:
+let
+  monoFont = vars.monoFont;
+in
 {
   programs.waybar = {
     enable = true;
@@ -72,8 +75,8 @@
 
     style = ''
       * {
-        font-family: monospace;
-        font-size: 13px;
+        font-family: "${monoFont.name}", monospace;
+        font-size: ${toString monoFont.size}px;
         min-height: 0;
       }
 

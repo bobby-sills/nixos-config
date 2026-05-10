@@ -1,10 +1,10 @@
-{ ... }:
+{ vars, ... }:
 {
 	programs.kitty = {
 		enable = true;
 		font = {
-			name = "Iosevka Nerd Font";
-			size = 12;
+			name = vars.monoFont.name;
+			size = vars.monoFont.size;
 		};
 		settings = {
 			cursor_shape        = "beam";
