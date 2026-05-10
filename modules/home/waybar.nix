@@ -8,12 +8,11 @@ in
     settings = [{
       layer = "top";
       position = "top";
-      height = 36;
       spacing = 4;
 
-      modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-      modules-center = [ "clock" ];
-      modules-right = [ "battery" "pulseaudio" "network" "cpu" "memory" "tray" ];
+      modules-left = [ "hyprland/workspaces" ];
+      modules-center = [ "hyprland/window" ];
+      modules-right = [ "network" "cpu" "memory" "battery" "pulseaudio" "clock" "tray" ];
 
       "hyprland/workspaces" = {
         format = "{id}";
@@ -21,34 +20,36 @@ in
       };
 
       "hyprland/window" = {
-        max-length = 50;
+        max-length = 60;
       };
 
       clock = {
-        format = "{:%a %d %b  %H:%M}";
-        tooltip-format = "<tt>{calendar}</tt>";
+        format = "{:%Y-%m-%d %I:%M %p}";
+        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       };
 
       cpu = {
-        format = " {usage}%";
+        format = "{usage}% ";
+        tooltip = true;
         interval = 2;
       };
 
       memory = {
-        format = " {percentage}%";
+        format = "{percentage}% ";
         interval = 5;
       };
 
       network = {
-        format-wifi = " {essid}";
-        format-ethernet = " {ipaddr}";
-        format-disconnected = "󰖪 Offline";
-        tooltip-format = "{ifname}: {ipaddr}/{cidr}";
+        format-wifi = "{essid} {icon}";
+        format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+        format-ethernet = "{ipaddr} ";
+        format-disconnected = "Disconnected 󰤭";
+        tooltip-format = "{ifname} via {gwaddr} ({signalStrength}%)";
       };
 
       pulseaudio = {
-        format = "{icon} {volume}%";
-        format-muted = "󰝟 Muted";
+        format = "{volume}% {icon}";
+        format-muted = "Muted 󰝟";
         format-icons = {
           default = [ "" "" "" ];
         };
@@ -61,75 +62,121 @@ in
           warning = 30;
           critical = 15;
         };
-        format = "{icon} {capacity}%";
-        format-charging = " {capacity}%";
-        format-plugged = " {capacity}%";
-        format-icons = [ "" "" "" "" "" ];
+        format = "{capacity}% {icon}";
+        format-charging = "{capacity}% ";
+        format-plugged = "{capacity}% ";
+        format-icons = [ " " " " " " " " " " ];
         interval = 30;
       };
 
       tray = {
-        spacing = 8;
+        spacing = 10;
       };
     }];
 
     style = ''
+      @define-color bg rgba(40, 40, 40, 0.96);
+      @define-color dark1 #3c3836;
+      @define-color light1 #ebdbb2;
+      @define-color light4 #a89984;
+      @define-color gray #928374;
+      @define-color bright_red #fb4934;
+      @define-color bright_green #b8bb26;
+      @define-color bright_yellow #fabd2f;
+      @define-color bright_blue #83a598;
+      @define-color bright_aqua #8ec07c;
+      @define-color bright_orange #fe8019;
+
       * {
         font-family: "${monoFont.name}", monospace;
         font-size: ${toString monoFont.size}px;
+        background-color: transparent;
         min-height: 0;
       }
 
       window#waybar {
-        background-color: rgba(15, 15, 15, 0.85);
-        color: #cdd6f4;
-        border-bottom: 2px solid rgba(51, 204, 255, 0.4);
+        background-color: @bg;
+        color: @light1;
+        padding-bottom: 2px;
+      }
+
+      tooltip {
+        background-color: @bg;
+        color: @light1;
+      }
+
+      button {
+        border: none;
+        border-radius: 0;
+      }
+
+      button:hover {
+        background: inherit;
+        box-shadow: inset 0 -3px @light1;
+      }
+
+      #workspaces {
+        margin: 0 4px;
       }
 
       #workspaces button {
-        padding: 0 8px;
-        color: #888;
-        background: transparent;
-        border: none;
-        border-radius: 6px;
-        margin: 4px 2px;
-      }
-
-      #workspaces button.active {
-        color: #33ccff;
-        background: rgba(51, 204, 255, 0.15);
+        padding: 0 5px;
+        background-color: transparent;
+        color: @light1;
+        transition: none;
       }
 
       #workspaces button:hover {
-        color: #00ff99;
-        background: rgba(0, 255, 153, 0.1);
+        background: transparent;
+      }
+
+      #workspaces button.active {
+        background-color: @light1;
+        color: @bg;
+      }
+
+      #workspaces button.urgent {
+        color: @bright_red;
       }
 
       #window {
-        color: #aaa;
-        padding: 0 8px;
+        margin: 0 4px;
+        color: @light1;
       }
 
-      #clock {
-        color: #33ccff;
-        font-weight: bold;
-        padding: 0 12px;
-      }
-
-      #cpu, #memory, #network, #pulseaudio, #battery, #tray {
+      #clock,
+      #battery,
+      #cpu,
+      #memory,
+      #network,
+      #pulseaudio,
+      #tray {
         padding: 0 10px;
-        color: #cdd6f4;
+        color: @light1;
       }
 
-      #battery { color: #a6e3a1; }
-      #battery.warning { color: #f9e2af; }
-      #battery.critical { color: #f38ba8; }
-      #battery.charging { color: #a6e3a1; }
-      #cpu { color: #00ff99; }
-      #memory { color: #a6e3a1; }
-      #network { color: #89b4fa; }
-      #pulseaudio { color: #f38ba8; }
-      #pulseaudio.muted { color: #555; }
+      #clock { color: @light1; }
+
+      #battery.charging, #battery.full { color: @bright_green; }
+      #battery.warning:not(.charging) { color: @bright_yellow; }
+      #battery.critical:not(.charging) { color: @bright_red; }
+
+      #cpu { color: @bright_red; }
+
+      #memory { color: @bright_aqua; }
+
+      #network { color: @light1; }
+      #network.disconnected { color: @bright_red; }
+
+      #pulseaudio { color: @light1; }
+      #pulseaudio.muted { color: @gray; }
+
+      #tray { color: @bright_blue; }
+      #tray > .passive { -gtk-icon-effect: dim; }
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
+        color: @bright_red;
+      }
     '';
   };
 }
