@@ -41,10 +41,10 @@ in
       };
 
       network = {
-        format-wifi = "{icon} {essid}";
-        format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+        format-wifi = "{essid} {icon}" ;
+        format-icons = [ "󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 " ];
         format-ethernet = "{ipaddr} ";
-        format-disconnected = "Disconnected 󰤭";
+        format-disconnected = "Disconnected 󰤭 ";
         tooltip-format = "{ifname} via {gwaddr} ({signalStrength}%)";
       };
 
