@@ -1,6 +1,7 @@
 { vars, ... }:
 let
   monoFont = vars.monoFont;
+  gb = import ../gruvbox.nix;
 in
 {
   programs.waybar = {
@@ -75,17 +76,17 @@ in
     }];
 
     style = ''
-      @define-color bg rgba(40, 40, 40, 0.96);
-      @define-color dark1 #3c3836;
-      @define-color light1 #ebdbb2;
-      @define-color light4 #a89984;
-      @define-color gray #928374;
-      @define-color bright_red #fb4934;
-      @define-color bright_green #b8bb26;
-      @define-color bright_yellow #fabd2f;
-      @define-color bright_blue #83a598;
-      @define-color bright_aqua #8ec07c;
-      @define-color bright_orange #fe8019;
+      @define-color bg ${gb.dark0}f5;
+      @define-color dark1 ${gb.dark1};
+      @define-color light1 ${gb.light1};
+      @define-color light4 ${gb.light4};
+      @define-color gray ${gb.gray_245};
+      @define-color bright_red ${gb.bright_red};
+      @define-color bright_green ${gb.bright_green};
+      @define-color bright_yellow ${gb.bright_yellow};
+      @define-color bright_blue ${gb.bright_blue};
+      @define-color bright_aqua ${gb.bright_aqua};
+      @define-color bright_orange ${gb.bright_orange};
 
       * {
         font-family: "${monoFont.name}", monospace;
