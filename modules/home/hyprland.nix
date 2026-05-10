@@ -1,6 +1,7 @@
 { lib, ... }:
 let
   gb = import ../gruvbox.nix;
+  hex = c: lib.removePrefix "#" c;
 in
 {
   wayland.windowManager.hyprland = {
@@ -31,8 +32,8 @@ in
         gaps_in = 5;
         gaps_out = 5;
         border_size = 2;
-        "col.active_border" = "rgba(${gb.bright_orange}ff)";
-        "col.inactive_border" = "rgba(${gb.dark1}aa)";
+        "col.active_border" = "rgba(${hex gb.bright_orange}ff)";
+        "col.inactive_border" = "rgba(${hex gb.dark1}aa)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
