@@ -64,9 +64,11 @@ in
           critical = 15;
         };
         format = "{capacity}% {icon}";
+        format-full = "{capacity}% {icon}";
         format-charging = "{capacity}% ";
         format-plugged = "{capacity}% ";
-        format-icons = [ " " " " " " " " " " ];
+        format-alt = "{time} {icon}";
+        format-icons = [ "󰁺" "󰁼" "󰁿" "󰂁" "󰁹" ];
         interval = 30;
       };
 
