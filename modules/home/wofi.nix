@@ -24,6 +24,7 @@ in
       #input {
         margin: 5px;
         border: none;
+        outline: none;
         color: ${gb.light1};
         background-color: ${gb.dark0_hard};
       }
