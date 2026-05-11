@@ -35,7 +35,7 @@ in
         "col.active_border" = "rgba(${hex gb.bright_orange}ff)";
         "col.inactive_border" = "rgba(${hex gb.dark1}aa)";
         resize_on_border = true;
-        extend_border_grab_area = 5;
+        extend_border_grab_area = 1;
         allow_tearing = false;
         layout = "dwindle";
       };
