@@ -40,13 +40,13 @@ in
       #inner-box {
         margin: 5px;
         border: none;
-        background-color: rgba(40, 40, 40, 0.6);
+        background-color: transparent;
       }
 
       #outer-box {
         margin: 5px;
         border: none;
-        background-color: rgba(40, 40, 40, 0.6);
+        background-color: transparent;
       }
 
       #scroll {
