@@ -311,8 +311,8 @@ in
   xdg.configFile."sys64/hud/style.css".text = ''
     window {
       background-color: ${gb.dark0_hard};
-      border-radius: 12px;
-      border: 2px solid ${gb.dark2};
+      border-radius: 10px;
+      border: none;
     }
 
     image {
@@ -322,11 +322,13 @@ in
     progressbar trough {
       background-color: ${gb.dark2};
       border-radius: 6px;
+      border: none;
     }
 
     progressbar progress {
       background-color: ${gb.bright_orange};
       border-radius: 6px;
+      border: none;
     }
 
     label {
