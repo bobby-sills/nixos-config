@@ -19,8 +19,8 @@ in
         "hyprctl setcursor Adwaita 24"
         "waybar"
         "hyprsunset"
-        "syshud -T 0"
-        "sh -c 'sleep 2 && if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then echo 1; else echo 0; fi > /sys/class/leds/platform::micmute/brightness'"
+        "swayosd-server"
+"sh -c 'sleep 2 && if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then echo 1; else echo 0; fi > /sys/class/leds/platform::micmute/brightness'"
       ];
 
       env = [
@@ -307,43 +307,6 @@ in
       submap = reset
     '';
   };
-
-  xdg.configFile."sys64/hud/style.css".text = ''
-    @define-color bg alpha(${gb.dark0}, 0.96);
-
-    window {
-      background-color: @bg;
-      border-radius: 12px;
-      border: none;
-      box-shadow: none;
-    }
-
-    image {
-      color: ${gb.bright_orange};
-      -gtk-icon-shadow: none;
-    }
-
-    progressbar,
-    progressbar trough,
-    progressbar progress {
-      border: none;
-      box-shadow: none;
-    }
-
-    progressbar trough {
-      background-color: ${gb.dark2};
-      border-radius: 6px;
-    }
-
-    progressbar progress {
-      background-color: ${gb.bright_orange};
-      border-radius: 6px;
-    }
-
-    label {
-      color: ${gb.light1};
-    }
-  '';
 
   home.file = {
     ".config/hypr/mic-mute-toggle.sh" = {

@@ -55,6 +55,6 @@
     playerctl
     xournalpp
     anki
-    syshud
+    swayosd
   ];
 }
