@@ -57,5 +57,6 @@
     anki
     swayosd
     alsa-utils
+    wev
   ];
 }
