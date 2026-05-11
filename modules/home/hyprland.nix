@@ -309,26 +309,35 @@ in
   };
 
   xdg.configFile."sys64/hud/style.css".text = ''
+    @define-color bg alpha(${gb.dark0}, 0.96);
+
     window {
-      background-color: ${gb.dark0_hard};
-      border-radius: 10px;
+      background-color: @bg;
+      border-radius: 12px;
       border: none;
+      box-shadow: none;
     }
 
     image {
       color: ${gb.bright_orange};
+      -gtk-icon-shadow: none;
+    }
+
+    progressbar,
+    progressbar trough,
+    progressbar progress {
+      border: none;
+      box-shadow: none;
     }
 
     progressbar trough {
       background-color: ${gb.dark2};
       border-radius: 6px;
-      border: none;
     }
 
     progressbar progress {
       background-color: ${gb.bright_orange};
       border-radius: 6px;
-      border: none;
     }
 
     label {
