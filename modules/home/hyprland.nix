@@ -189,6 +189,10 @@ in
         "$mainMod SHIFT, J, resizeactive, 0 40"
         "$mainMod SHIFT, K, resizeactive, 0 -40"
         "$mainMod SHIFT, L, resizeactive, 40 0"
+        "$mainMod CTRL, H, moveactive, -40 0"
+        "$mainMod CTRL, J, moveactive, 0 40"
+        "$mainMod CTRL, K, moveactive, 0 -40"
+        "$mainMod CTRL, L, moveactive, 40 0"
       ];
 
       bindm = [
