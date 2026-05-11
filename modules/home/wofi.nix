@@ -17,7 +17,7 @@ in
 
       window {
         margin: 0px;
-        border: 1px solid ${gb.gray_245};
+        border: 2px solid ${gb.bright_orange};
         background-color: ${gb.dark0};
       }
 
