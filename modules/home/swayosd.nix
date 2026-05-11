@@ -6,7 +6,7 @@ in
   xdg.configFile."swayosd/style.css".text = ''
     window#osd {
       background: ${gb.dark0}eb;
-      border: 1px solid ${gb.dark1};
+      border: 2px solid ${gb.dark1}aa;
       border-radius: 8px;
     }
 
@@ -15,11 +15,11 @@ in
     }
 
     image {
-      color: ${gb.light4};
+      color: ${gb.light1};
     }
 
     progressbar trough {
-      background: ${gb.dark1};
+      background: ${gb.dark4};
       border-radius: 4px;
       min-height: 6px;
     }
