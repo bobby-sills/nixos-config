@@ -56,5 +56,6 @@
     xournalpp
     anki
     swayosd
+    alsa-utils
   ];
 }

@@ -20,7 +20,6 @@ in
         "waybar"
         "hyprsunset"
         "swayosd-server"
-"sh -c 'sleep 2 && if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then echo 1; else echo 0; fi > /sys/class/leds/platform::micmute/brightness'"
       ];
 
       env = [
@@ -202,14 +201,14 @@ in
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, exec, ~/.config/hypr/mic-mute-toggle.sh"
-        ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
-        ",F6, exec, brightnessctl -e4 -n2 set 5%+"
-        ",F5, exec, brightnessctl -e4 -n2 set 5%-"
+        ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+        ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+        ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+        ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
+        ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+        ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+        ",F6, exec, swayosd-client --brightness raise"
+        ",F5, exec, swayosd-client --brightness lower"
         "$mainMod, XF86MonBrightnessUp, exec, hyprctl hyprsunset temperature +500"
         "$mainMod, XF86MonBrightnessDown, exec, hyprctl hyprsunset temperature -500"
         "$mainMod, F6, exec, hyprctl hyprsunset temperature +500"
@@ -308,18 +307,4 @@ in
     '';
   };
 
-  home.file = {
-    ".config/hypr/mic-mute-toggle.sh" = {
-      executable = true;
-      text = ''
-        #!/bin/sh
-        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-        if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then
-          echo 1 > /sys/class/leds/platform::micmute/brightness
-        else
-          echo 0 > /sys/class/leds/platform::micmute/brightness
-        fi
-      '';
-    };
-  };
 }
