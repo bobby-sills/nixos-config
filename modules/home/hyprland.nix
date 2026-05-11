@@ -208,12 +208,8 @@ in
         ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
         ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
-        ",F6, exec, swayosd-client --brightness raise"
-        ",F5, exec, swayosd-client --brightness lower"
         "$mainMod, XF86MonBrightnessUp, exec, hyprctl hyprsunset temperature +500"
         "$mainMod, XF86MonBrightnessDown, exec, hyprctl hyprsunset temperature -500"
-        "$mainMod, F6, exec, hyprctl hyprsunset temperature +500"
-        "$mainMod, F5, exec, hyprctl hyprsunset temperature -500"
       ];
 
       bindl = [
