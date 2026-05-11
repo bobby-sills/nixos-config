@@ -13,7 +13,7 @@ in
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "network" "cpu" "battery" "clock" "tray" ];
+      modules-right = [ "network" "cpu" "power-profiles-daemon" "battery" "clock" "tray" ];
 
       "hyprland/workspaces" = {
         format = "{id}";
@@ -69,6 +69,17 @@ in
         format-plugged = "{capacity}% ";
         format-alt = "{time} {icon}";
         format-icons = [ " " " " " " " " " " ];
+      };
+
+      "power-profiles-daemon" = {
+        format = "{icon}";
+        tooltip-format = "{profile}";
+        format-icons = {
+          default = "󰈐";
+          performance = "󰓅";
+          balanced = "󰾅";
+          power-saver = "󰾆";
+        };
       };
 
       tray = {
@@ -153,10 +164,15 @@ in
       #memory,
       #network,
       #pulseaudio,
+      #power-profiles-daemon,
       #tray {
         padding: 0 16px;
         color: @light1;
       }
+
+      #power-profiles-daemon.performance { color: @bright_red; }
+      #power-profiles-daemon.balanced { color: @bright_green; }
+      #power-profiles-daemon.power-saver { color: @bright_blue; }
 
       #clock { color: @light1; }
 
