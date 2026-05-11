@@ -17,7 +17,7 @@ in
 
       window {
         margin: 0px;
-        border: 3px solid ${gb.bright_orange};
+        border: 2.5px solid ${gb.bright_orange};
         border-radius: 10px;
         background-color: ${gb.dark0};
       }
