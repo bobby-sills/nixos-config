@@ -308,53 +308,33 @@ in
     '';
   };
 
+  xdg.configFile."sys64/hud/style.css".text = ''
+    window {
+      background-color: ${gb.dark0_hard};
+      border-radius: 12px;
+      border: 2px solid ${gb.dark2};
+    }
+
+    image {
+      color: ${gb.bright_orange};
+    }
+
+    progressbar trough {
+      background-color: ${gb.dark2};
+      border-radius: 6px;
+    }
+
+    progressbar progress {
+      background-color: ${gb.bright_orange};
+      border-radius: 6px;
+    }
+
+    label {
+      color: ${gb.light1};
+    }
+  '';
+
   home.file = {
-    ".config/sys64/hud/style.css".text = ''
-      #syshud {
-        background: transparent;
-      }
-
-      #syshud .box_layout {
-        background: #282828;
-        border-radius: 25px;
-        border: 1px solid #3c3836;
-        margin: 10px;
-      }
-
-      #syshud label {
-        color: #a89984;
-      }
-
-      #syshud scale {
-        margin: 0px;
-        padding: 0px;
-        min-height: 5px;
-        min-width: 5px;
-      }
-      #syshud scale trough {
-        border-radius: 3px;
-        background: #3c3836;
-        min-height: 5px;
-        min-width: 5px;
-        padding: 0px;
-      }
-      #syshud scale.horizontal highlight {
-        border-radius: 3px;
-        min-height: 5px;
-        min-width: 5px;
-        background: #fe8019;
-        margin: 0px;
-      }
-      #syshud scale slider {
-        margin: 0px;
-        background: transparent;
-        min-height: 5px;
-        min-width: 5px;
-        box-shadow: none;
-        padding: 0px;
-      }
-    '';
-
     ".config/hypr/mic-mute-toggle.sh" = {
       executable = true;
       text = ''
