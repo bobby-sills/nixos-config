@@ -72,7 +72,7 @@ in
       };
 
       tray = {
-        spacing = 10;
+        spacing = 5;
       };
     }];
 
