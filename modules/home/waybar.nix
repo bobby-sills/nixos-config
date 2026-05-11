@@ -13,7 +13,7 @@ in
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "network" "cpu" "battery" "pulseaudio" "clock" "tray" ];
+      modules-right = [ "network" "cpu" "battery" "clock" "tray" ];
 
       "hyprland/workspaces" = {
         format = "{id}";

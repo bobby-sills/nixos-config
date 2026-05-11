@@ -6,6 +6,9 @@ in
 {
   programs.wofi = {
     enable = true;
+    settings = {
+      matching = "fuzzy";
+    };
     style = ''
       * {
         font-family: "${monoFont.name}", monospace;
