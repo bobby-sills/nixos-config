@@ -19,7 +19,7 @@ in
         margin: 0px;
         border: 2.5px solid ${gb.bright_orange};
         border-radius: 10px;
-        background-color: ${gb.dark0};
+        background-color: rgba(40, 40, 40, 0.96);
       }
 
       #input {
@@ -28,7 +28,7 @@ in
         outline: none;
         box-shadow: none;
         color: ${gb.light1};
-        background-color: ${gb.dark0_hard};
+        background-color: rgba(29, 32, 33, 0.96);
       }
 
       #input:focus {
@@ -40,13 +40,13 @@ in
       #inner-box {
         margin: 5px;
         border: none;
-        background-color: ${gb.dark0};
+        background-color: rgba(40, 40, 40, 0.96);
       }
 
       #outer-box {
         margin: 5px;
         border: none;
-        background-color: ${gb.dark0};
+        background-color: rgba(40, 40, 40, 0.96);
       }
 
       #scroll {
