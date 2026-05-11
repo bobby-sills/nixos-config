@@ -19,7 +19,7 @@ in
         "hyprctl setcursor Adwaita 24"
         "waybar"
         "hyprsunset"
-        "syshud"
+        "syshud -T 0"
         "sh -c 'sleep 2 && if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then echo 1; else echo 0; fi > /sys/class/leds/platform::micmute/brightness'"
       ];
 
@@ -309,6 +309,52 @@ in
   };
 
   home.file = {
+    ".config/sys64/hud/style.css".text = ''
+      #syshud {
+        background: transparent;
+      }
+
+      #syshud .box_layout {
+        background: #282828;
+        border-radius: 25px;
+        border: 1px solid #3c3836;
+        margin: 10px;
+      }
+
+      #syshud label {
+        color: #a89984;
+      }
+
+      #syshud scale {
+        margin: 0px;
+        padding: 0px;
+        min-height: 5px;
+        min-width: 5px;
+      }
+      #syshud scale trough {
+        border-radius: 3px;
+        background: #3c3836;
+        min-height: 5px;
+        min-width: 5px;
+        padding: 0px;
+      }
+      #syshud scale.horizontal highlight {
+        border-radius: 3px;
+        min-height: 5px;
+        min-width: 5px;
+        background: #fe8019;
+        margin: 0px;
+      }
+      #syshud scale slider {
+        margin: 0px;
+        background: transparent;
+        min-height: 5px;
+        min-width: 5px;
+        box-shadow: none;
+        padding: 0px;
+      }
+    '';
+
     ".config/hypr/mic-mute-toggle.sh" = {
       executable = true;
       text = ''
