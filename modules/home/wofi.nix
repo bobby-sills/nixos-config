@@ -19,7 +19,7 @@ in
         margin: 0px;
         border: 2.5px solid ${gb.bright_orange};
         border-radius: 10px;
-        background-color: rgba(40, 40, 40, 0.6);
+        background-color: rgba(40, 40, 40, 0.96);
       }
 
       #input {
@@ -28,7 +28,7 @@ in
         outline: none;
         box-shadow: none;
         color: ${gb.light1};
-        background-color: rgba(29, 32, 33, 0.6);
+        background-color: ${gb.dark0_hard};
       }
 
       #input:focus {
