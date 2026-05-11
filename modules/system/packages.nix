@@ -55,5 +55,6 @@
     playerctl
     xournalpp
     anki
+    syshud
   ];
 }
