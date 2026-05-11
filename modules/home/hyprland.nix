@@ -19,6 +19,7 @@ in
         "hyprctl setcursor Adwaita 24"
         "waybar"
         "hyprsunset"
+        "syshud"
         "sh -c 'sleep 2 && if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then echo 1; else echo 0; fi > /sys/class/leds/platform::micmute/brightness'"
       ];
 
