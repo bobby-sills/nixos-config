@@ -25,8 +25,15 @@ in
         margin: 5px;
         border: none;
         outline: none;
+        box-shadow: none;
         color: ${gb.light1};
         background-color: ${gb.dark0_hard};
+      }
+
+      #input:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
       }
 
       #inner-box {
