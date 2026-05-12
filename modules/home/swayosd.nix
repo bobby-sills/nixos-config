@@ -19,7 +19,7 @@ in
     }
 
     progressbar trough {
-      background: ${gb.dark4};
+      background: ${gb.dark2};
       border-radius: 4px;
       min-height: 6px;
     }
