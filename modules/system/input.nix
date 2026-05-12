@@ -3,7 +3,7 @@
 	services.keyd = {
 		enable = true;
 		keyboards.default = {
-			ids = [ "*" "!17aa:5054" ];
+			ids = [ "*" ];
 			settings.main.capslock = "overload(control, esc)";
 		};
 	};
