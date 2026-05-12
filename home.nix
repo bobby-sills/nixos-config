@@ -13,6 +13,7 @@
 		./modules/home/yazi-filemanager.nix
 		./modules/home/spotify-player.nix
 		./modules/home/swayosd.nix
+		./modules/home/beeper.nix
 	];
 
 	home.username = "bobby";
