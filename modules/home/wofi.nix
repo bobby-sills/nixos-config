@@ -8,6 +8,7 @@ in
     enable = true;
     settings = {
       matching = "contains";
+      insensitive = true;
     };
     style = ''
       * {
