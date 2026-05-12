@@ -58,5 +58,6 @@
     swayosd
     alsa-utils
     wev
+    musescore
   ];
 }
