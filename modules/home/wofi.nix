@@ -7,7 +7,7 @@ in
   programs.wofi = {
     enable = true;
     settings = {
-      matching = "fuzzy";
+      matching = "contains";
     };
     style = ''
       * {
