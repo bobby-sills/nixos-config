@@ -49,6 +49,12 @@ programs.bash.profileExtra = ''
 
   services.ssh-agent.enable = true;
 
+  services.udiskie = {
+    enable = true;
+    automount = true;
+    notify = true;
+  };
+
   programs.bash = {
     enable = true;
     shellAliases = {
