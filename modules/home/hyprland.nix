@@ -26,6 +26,8 @@ in
         "XCURSOR_THEME,Adwaita"
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
+        "XDG_DATA_DIRS,/run/current-system/sw/share:$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        "QT_QPA_PLATFORM,wayland"
       ];
 
       general = {
