@@ -121,6 +121,7 @@ programs.bash.profileExtra = ''
         { on = [ "," "S" ]; run = [ "sort size --reverse=no" "linemode size" "plugin pref-by-location -- save" ]; desc = "Sort by size"; }
         { on = [ "," "s" ]; run = [ "sort size --reverse" "linemode size" "plugin pref-by-location -- save" ]; desc = "Sort by size (reverse)"; }
         { on = [ "," "r" ]; run = [ "sort random --reverse=no" "plugin pref-by-location -- save" ]; desc = "Sort randomly"; }
+        { on = [ "g" "M" ]; run = "cd /mnt/media"; desc = "Go to /mnt/media"; }
       ];
     };
     settings = {
