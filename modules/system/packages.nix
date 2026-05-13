@@ -59,5 +59,6 @@
     alsa-utils
     wev
     musescore
+    libnotify
   ];
 }
