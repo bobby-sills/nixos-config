@@ -47,6 +47,7 @@ in
     enableBashIntegration = true;
     shellWrapperName = "y";
     plugins = {
+      no-status = pkgs.yaziPlugins.no-status;
       smart-enter = pkgs.yaziPlugins.smart-enter;
       pref-by-location = pkgs.yaziPlugins.mkYaziPlugin {
         pname = "pref-by-location";
@@ -66,6 +67,7 @@ in
       };
     };
     initLua = ''
+      require("no-status"):setup()
       require("pref-by-location"):setup({})
       require("restore"):setup({})
     '';
