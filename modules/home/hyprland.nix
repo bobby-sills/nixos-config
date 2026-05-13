@@ -303,6 +303,76 @@ in
       bind = , P, submap, reset
       bind = , escape, submap, reset
       submap = reset
+
+      bind = $mainMod SHIFT, P, submap, power_menu
+
+      submap = power_menu
+      bind = , s, submap, sd_h
+      bind = , r, submap, rb_e
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = sd_h
+      bind = , h, submap, sd_u
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = sd_u
+      bind = , u, submap, sd_t
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = sd_t
+      bind = , t, submap, sd_d
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = sd_d
+      bind = , d, submap, sd_o
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = sd_o
+      bind = , o, submap, sd_w
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = sd_w
+      bind = , w, submap, sd_n
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = sd_n
+      bind = , n, exec, systemctl poweroff
+      bind = , n, submap, reset
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = rb_e
+      bind = , e, submap, rb_b
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = rb_b
+      bind = , b, submap, rb_o1
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = rb_o1
+      bind = , o, submap, rb_o2
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = rb_o2
+      bind = , o, submap, rb_t
+      bind = , escape, submap, reset
+      submap = reset
+
+      submap = rb_t
+      bind = , t, exec, systemctl reboot
+      bind = , t, submap, reset
+      bind = , escape, submap, reset
+      submap = reset
     '';
   };
 
