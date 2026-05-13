@@ -1,4 +1,7 @@
 { pkgs, vars, ... }:
+let
+  gb = import ../gruvbox.nix;
+in
 {
 	home.pointerCursor = {
 		package = pkgs.apple-cursor;
@@ -12,6 +15,11 @@
 		settings = {
 			default-timeout = 5000;
 			font = "${vars.monoFont.name} ${toString vars.monoFont.size}";
+			background-color = "${gb.dark0}ff";
+			text-color = "${gb.light1}ff";
+			border-color = "${gb.bright_orange}ff";
+			border-size = 2;
+			border-radius = 10;
 		};
 	};
 

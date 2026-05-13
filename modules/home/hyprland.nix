@@ -176,6 +176,7 @@ in
         "$mainMod CTRL, S, exec, hyprshot -z -m region -o ~/Pictures/screenshots"
         "$mainMod SHIFT CTRL, S, exec, hyprshot -z -m output -m active -o ~/Pictures/screenshots"
         "$mainMod, BackSpace, exec, makoctl dismiss"
+        "$mainMod SHIFT, BackSpace, exec, notify-send 'Test Notification' 'Mako is working'"
         "$mainMod, Y, exec, $fileManager"
         "$mainMod, W, exec, pkill -SIGUSR1 waybar"
         "$mainMod, U, exec, case $(powerprofilesctl get) in power-saver) powerprofilesctl set balanced;; balanced) powerprofilesctl set performance;; performance) powerprofilesctl set power-saver;; esac"

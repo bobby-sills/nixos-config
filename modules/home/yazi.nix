@@ -100,7 +100,7 @@ in
     };
   };
 
-  home.packages = [ yaziWrapper ];
+  home.packages = [ yaziWrapper pkgs.xdg-desktop-portal-termfilechooser ];
 
   systemd.user.services.xdg-desktop-portal-termfilechooser = {
     Service.ExecStart = [
