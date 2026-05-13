@@ -18,7 +18,7 @@ in
 			background-color = "${gb.dark0}ff";
 			text-color = "${gb.light1}ff";
 			border-color = "${gb.bright_orange}ff";
-			border-size = 2;
+			border-size = 3;
 			border-radius = 10;
 		};
 	};
