@@ -11,7 +11,7 @@ in
       monitor = ",preferred,auto,1.25";
 
       "$terminal" = "kitty";
-      "$fileManager" = "kitty -e yazi";
+      "$fileManager" = "kitty --class float-50 -e yazi";
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
 
