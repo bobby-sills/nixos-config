@@ -173,6 +173,7 @@ in
         "$mainMod, P, togglespecialworkspace, spotify"
         "$mainMod, M, togglespecialworkspace, beeper"
         "$mainMod, Tab, workspace, previous"
+        "$mainMod CTRL, Tab, cyclenext,"
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod CTRL, S, exec, hyprshot -z -m region -o ~/Pictures/screenshots"
