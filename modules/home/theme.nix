@@ -20,7 +20,6 @@ in
 			border-color = "${gb.bright_orange}ff";
 			border-size = 2;
 			border-radius = 10;
-			outline-width = 3;
 		};
 	};
 
