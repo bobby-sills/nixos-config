@@ -47,8 +47,7 @@ in
     enableBashIntegration = true;
     shellWrapperName = "y";
     plugins = {
-      no-status = pkgs.yaziPlugins.no-status;
-      smart-enter = pkgs.yaziPlugins.smart-enter;
+smart-enter = pkgs.yaziPlugins.smart-enter;
       pref-by-location = pkgs.yaziPlugins.mkYaziPlugin {
         pname = "pref-by-location";
         version = "unstable-2025-05-09";
@@ -67,8 +66,7 @@ in
       };
     };
     initLua = ''
-      require("no-status"):setup()
-      require("pref-by-location"):setup({})
+require("pref-by-location"):setup({})
       require("restore"):setup({})
     '';
     keymap = {
