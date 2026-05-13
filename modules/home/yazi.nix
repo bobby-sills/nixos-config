@@ -102,6 +102,13 @@ in
 
   home.packages = [ yaziWrapper ];
 
+  systemd.user.services.xdg-desktop-portal-termfilechooser = {
+    Service.ExecStart = [
+      ""
+      "${pkgs.xdg-desktop-portal-termfilechooser}/libexec/xdg-desktop-portal-termfilechooser -r"
+    ];
+  };
+
   xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
     [filechooser]
     cmd=${yaziWrapper}/bin/yazi-wrapper
