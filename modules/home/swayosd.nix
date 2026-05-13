@@ -8,6 +8,7 @@ in
       background: ${gb.dark0}eb;
       border: 2px solid ${gb.dark1}aa;
       border-radius: 8px;
+      outline: 2.5px solid ${gb.bright_orange};
     }
 
     box#container {
