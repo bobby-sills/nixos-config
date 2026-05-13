@@ -86,6 +86,7 @@ in
         { on = [ "," "s" ]; run = [ "sort size --reverse" "linemode size" "plugin pref-by-location -- save" ]; desc = "Sort by size (reverse)"; }
         { on = [ "," "r" ]; run = [ "sort random --reverse=no" "plugin pref-by-location -- save" ]; desc = "Sort randomly"; }
         { on = [ "g" "m" ]; run = "cd /mnt/media"; desc = "Go to /mnt/media"; }
+        { on = [ "g" "v" ]; run = "cd ~/Videos"; desc = "Go to ~/Videos"; }
       ];
     };
     settings = {
