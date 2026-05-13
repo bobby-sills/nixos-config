@@ -72,6 +72,7 @@ in
     keymap = {
       mgr.prepend_keymap = [
         { on = [ "<Enter>" ]; run = "plugin smart-enter"; desc = "Enter the child directory, or open the file"; }
+        { on = [ "!" ]; run = ''shell "$SHELL" --block''; desc = "Open $SHELL here"; }
         { on = [ "," "d" ]; run = [ "sort --dir-first=no" "plugin pref-by-location -- save" ]; desc = "Directories and files mixed"; }
         { on = [ "," "D" ]; run = [ "sort --dir-first=yes" "plugin pref-by-location -- save" ]; desc = "Directories first"; }
         { on = "."; run = [ "hidden toggle" "plugin pref-by-location -- save" ]; desc = "Toggle the visibility of hidden files"; }
