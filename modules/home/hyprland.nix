@@ -129,6 +129,8 @@ in
 
       bind = [
         "$mainMod, Return, exec, $terminal"
+        "$mainMod SHIFT, Return, exec, kitty --class float-50"
+        "$mainMod CTRL, Return, exec, kitty --class float-75"
         "$mainMod, C, killactive,"
         "$mainMod, T, togglefloating,"
         "$mainMod SHIFT, T, setfloating,"
