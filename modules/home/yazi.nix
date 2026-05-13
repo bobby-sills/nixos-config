@@ -100,8 +100,7 @@ in
         { on = [ "g" "m" ]; run = "cd /mnt/media"; desc = "Go to /mnt/media"; }
         { on = [ "g" "v" ]; run = "cd ~/Videos"; desc = "Go to ~/Videos"; }
         { on = [ "g" "t" ]; run = "cd ~/.local/share/Trash/files"; desc = "Go to Trash"; }
-        { on = [ "d" "u" ]; run = "plugin restore"; desc = "Restore last deleted files/folders"; }
-        { on = [ "d" "U" ]; run = "plugin restore -- --interactive"; desc = "Restore deleted files/folders (interactive)"; }
+        { on = "u"; run = "plugin restore"; desc = "Restore last deleted files/folders"; }
       ];
     };
     settings = {
