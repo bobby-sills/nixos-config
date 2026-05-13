@@ -60,7 +60,7 @@ in
         version = "unstable-2026-05-13";
         src = pkgs.fetchurl {
           url = "https://github.com/boydaihungst/restore.yazi/archive/refs/heads/master.tar.gz";
-          hash = "sha256-rDsyMF5IEBHx+fJ0oYTCCQAlTSquUcOkFLC4Lmbuz6k=";
+          hash = "sha256-OfIIUqJ9cxpQ/Ycwc7orHOA2Pxr/Ww7r7eqAIykCkYE=";
         };
       };
     };
