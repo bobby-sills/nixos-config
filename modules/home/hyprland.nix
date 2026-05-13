@@ -144,6 +144,10 @@ in
         "$mainMod SHIFT, Escape, exec, systemctl suspend"
 
         "$mainMod, R, layoutmsg, togglesplit"
+        "$mainMod ALT, H, swapwindow, l"
+        "$mainMod ALT, J, swapwindow, d"
+        "$mainMod ALT, K, swapwindow, u"
+        "$mainMod ALT, L, swapwindow, r"
         "$mainMod, H, movefocus, l"
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
