@@ -3,7 +3,7 @@
   home.packages = [
     (pkgs.writeShellScriptBin "rebuild" ''
       set -e
-      cd ~/nixos-dotfiles
+      cd ~/nixos-config
 
       PUSH=0
       NO_COMMIT=0
@@ -25,7 +25,7 @@
         fi
       fi
 
-      sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw
+      sudo nixos-rebuild switch --flake ~/nixos-config#nixos-btw
 
       if [[ $PUSH -eq 1 ]]; then
         git push
