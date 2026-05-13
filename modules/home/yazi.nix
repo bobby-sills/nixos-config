@@ -55,9 +55,18 @@ in
           hash = "sha256-uGNihFVF1RnZ6sCAZ+g/kZTkNqWI23UPS2huxElpRng=";
         };
       };
+      restore = pkgs.yaziPlugins.mkYaziPlugin {
+        pname = "restore";
+        version = "unstable-2026-05-13";
+        src = pkgs.fetchurl {
+          url = "https://github.com/boydaihungst/restore.yazi/archive/refs/heads/master.tar.gz";
+          hash = "sha256-rDsyMF5IEBHx+fJ0oYTCCQAlTSquUcOkFLC4Lmbuz6k=";
+        };
+      };
     };
     initLua = ''
       require("pref-by-location"):setup({})
+      require("restore"):setup({})
     '';
     keymap = {
       mgr.prepend_keymap = [
@@ -87,6 +96,9 @@ in
         { on = [ "," "r" ]; run = [ "sort random --reverse=no" "plugin pref-by-location -- save" ]; desc = "Sort randomly"; }
         { on = [ "g" "m" ]; run = "cd /mnt/media"; desc = "Go to /mnt/media"; }
         { on = [ "g" "v" ]; run = "cd ~/Videos"; desc = "Go to ~/Videos"; }
+        { on = [ "g" "t" ]; run = "cd ~/.local/share/Trash/files"; desc = "Go to Trash"; }
+        { on = [ "d" "u" ]; run = "plugin restore"; desc = "Restore last deleted files/folders"; }
+        { on = [ "d" "U" ]; run = "plugin restore -- --interactive"; desc = "Restore deleted files/folders (interactive)"; }
       ];
     };
     settings = {
@@ -101,7 +113,7 @@ in
     };
   };
 
-  home.packages = [ yaziWrapper pkgs.xdg-desktop-portal-termfilechooser ];
+  home.packages = [ yaziWrapper pkgs.xdg-desktop-portal-termfilechooser pkgs.trash-cli ];
 
   systemd.user.services.xdg-desktop-portal-termfilechooser = {
     Service.ExecStart = [
