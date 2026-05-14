@@ -9,10 +9,10 @@ in
 			notify_transient = true;
 			theme = "gruvbox_dark";
 			layout = {
-				playback_window_height = 12;
+				playback_window_height = 11;
 			};
-			cover_img_length = 11;
-			cover_img_width = 7;
+			cover_img_length = 24;
+			cover_img_width = 9;
 			cover_img_scale = 1.0;
 		};
 
