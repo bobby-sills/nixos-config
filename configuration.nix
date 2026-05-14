@@ -9,7 +9,10 @@
 		./modules/system/packages.nix
 		./modules/system/fonts.nix
 		./modules/system/desktop.nix
+		./modules/system/nordvpn.nix
 	];
+
+	custom.services.nordvpn.enable = true;
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
