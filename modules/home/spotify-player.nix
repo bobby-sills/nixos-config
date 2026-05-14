@@ -19,8 +19,7 @@
         name = "gruvbox-fix";
         component_style = {
           playback_progress_bar = {
-	    fg = "Yellow"; 
-	    bg = "BrightBlack";
+	    fg = "Cyan"; 
 	  };
         };
       }
