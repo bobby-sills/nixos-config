@@ -11,6 +11,9 @@ in
 			layout = {
 				playback_window_height = 12;
 			};
+			cover_img_length = 11;
+			cover_img_width = 7;
+			cover_img_scale = 1.0;
 		};
 
 		actions = [
