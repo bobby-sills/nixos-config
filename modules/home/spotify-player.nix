@@ -26,6 +26,10 @@
         key_sequence = "C-l";
         target = "PlayingTrack";
       }
+      {
+        action = "AddToPlaylist";
+        key_sequence = "C-a";
+      }
     ];
 
     themes = [
