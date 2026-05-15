@@ -8,8 +8,9 @@
     enable = true;
     settings = {
       general = {
-        before_sleep_cmd = "hyprlock --immediate";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
+        lock_cmd = "hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on; loginctl lock-session";
       };
       listener = [
         {
