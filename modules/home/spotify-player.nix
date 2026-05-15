@@ -1,32 +1,40 @@
 { ... }:
 {
-	programs.spotify-player = {
-		enable = true;
-		settings = {
-			notify_transient = true;
-			theme = "custom";
-			layout = {
-				playback_window_height = 11;
-			};
-			cover_img_length = 24;
-			cover_img_width = 9;
-			cover_img_scale = 1.0;
-		};
+  programs.spotify-player = {
+    enable = true;
+    settings = {
+      notify_transient = true;
+      theme = "custom";
+      layout = {
+        playback_window_height = 11;
+      };
+      cover_img_length = 24;
+      cover_img_width = 9;
+      cover_img_scale = 1.0;
+    };
 
-		actions = [
-			{
-				action = "ToggleLiked";
-				key_sequence = "C-l";
-			}
-		];
+    keymaps = [
+      {
+        command = "None";
+        key_sequence = "C-M-z";
+      }
+    ];
 
-		themes = [
-			{
-				name = "custom";
-				component_style = {
-					playback_progress_bar = { fg = "Green"; };
-				};
-			}
-		];
-	};
+    actions = [
+      {
+        action = "ToggleLiked";
+        key_sequence = "C-l";
+        target = "PlayingTrack";
+      }
+    ];
+
+    themes = [
+      {
+        name = "custom";
+        component_style = {
+          playback_progress_bar = { fg = "Green"; };
+        };
+      }
+    ];
+  };
 }
