@@ -15,8 +15,8 @@
 
     keymaps = [
       {
-        command = "None";
-        key_sequence = "C-M-z";
+        command = "Quit";
+        key_sequence = "q";
       }
     ];
 
