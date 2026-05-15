@@ -235,7 +235,7 @@ in
       ];
 
       layerrule = [
-        "noanim, swayosd"
+        "no_anim 1, match:namespace swayosd"
       ];
 
       windowrule = [
