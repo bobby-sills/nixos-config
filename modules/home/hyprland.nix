@@ -234,6 +234,10 @@ in
         "f[1], gapsout:0, gapsin:0"
       ];
 
+      layerrule = [
+        "noanim, swayosd"
+      ];
+
       windowrule = [
         {
           name = "float-75";
