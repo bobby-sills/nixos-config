@@ -12,7 +12,7 @@ let
     [ "$debug" = 1 ] && set -x
 
     cmd="${pkgs.yazi}/bin/yazi"
-    termcmd="''${TERMCMD:-${pkgs.kitty}/bin/kitty --title 'termfilechooser'}"
+    termcmd="''${TERMCMD:-${pkgs.kitty}/bin/kitty --class float-50 --title 'termfilechooser'}"
 
     if [ "$save" = "1" ]; then
       set -- --chooser-file="$out" "$path"
