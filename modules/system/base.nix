@@ -2,7 +2,7 @@
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "snd-intel-dspcfg.dsp_driver=3" ];
+  boot.blacklistedKernelModules = [ "snd_pci_ps" ];
 
   hardware.firmware = [ pkgs.sof-firmware ];
 
