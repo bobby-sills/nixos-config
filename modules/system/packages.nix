@@ -62,5 +62,6 @@
     libnotify
     nodejs
     lazygit
+    jq
   ];
 }

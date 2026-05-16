@@ -211,10 +211,10 @@ in
         "$mainMod SHIFT, J, resizeactive, 0 40"
         "$mainMod SHIFT, K, resizeactive, 0 -40"
         "$mainMod SHIFT, L, resizeactive, 40 0"
-        "$mainMod CTRL, H, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive -40 0 || hyprctl dispatch swapwindow l\""
-        "$mainMod CTRL, J, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive 0 40 || hyprctl dispatch swapwindow d\""
-        "$mainMod CTRL, K, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive 0 -40 || hyprctl dispatch swapwindow u\""
-        "$mainMod CTRL, L, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive 40 0 || hyprctl dispatch swapwindow r\""
+        "$mainMod CTRL, H, exec, hyprctl dispatch $(hyprctl activewindow -j | jq -r 'if .floating then \"moveactive -40 0\" else \"swapwindow l\" end')"
+        "$mainMod CTRL, J, exec, hyprctl dispatch $(hyprctl activewindow -j | jq -r 'if .floating then \"moveactive 0 40\" else \"swapwindow d\" end')"
+        "$mainMod CTRL, K, exec, hyprctl dispatch $(hyprctl activewindow -j | jq -r 'if .floating then \"moveactive 0 -40\" else \"swapwindow u\" end')"
+        "$mainMod CTRL, L, exec, hyprctl dispatch $(hyprctl activewindow -j | jq -r 'if .floating then \"moveactive 40 0\" else \"swapwindow r\" end')"
       ];
 
       bindm = [
