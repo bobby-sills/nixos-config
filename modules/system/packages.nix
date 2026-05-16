@@ -64,5 +64,6 @@
     lazygit
     jq
     rustup
+    gcc
   ];
 }
