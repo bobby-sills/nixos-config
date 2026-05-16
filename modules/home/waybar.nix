@@ -114,7 +114,8 @@ in
         padding-bottom: 2px;
       }
 
-      tooltip {
+      tooltip,
+      menu {
         background-color: @bg;
         color: @light1;
       }
