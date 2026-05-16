@@ -6,7 +6,7 @@ let
     hyprctl hyprsunset temperature "$1"
     kelvin=$(hyprctl hyprsunset temperature)
     progress=$(awk -v k="$kelvin" 'BEGIN {printf "%.3f", (k - 1000) / 19000}')
-    swayosd-client --custom-progress "$progress" --custom-progress-text "''${kelvin}K"
+    swayosd-client --custom-progress "$progress" --custom-icon "night-light-symbolic"
   '';
 in
 {
