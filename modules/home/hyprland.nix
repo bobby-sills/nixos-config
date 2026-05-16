@@ -246,7 +246,8 @@ in
       ];
 
       layerrule = [
-        "no_anim 1, match:namespace swayosd"
+        "animation fade, match:namespace swayosd"
+        "animation fade, match:namespace hyprshot"
       ];
 
       windowrule = [
