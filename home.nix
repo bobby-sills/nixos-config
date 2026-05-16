@@ -13,6 +13,7 @@
     ./modules/home/yazi.nix
     ./modules/home/spotify-player.nix
     ./modules/home/swayosd.nix
+    ./modules/home/rclone.nix
   ];
 
   home.username = "bobby";
