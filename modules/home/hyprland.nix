@@ -1,7 +1,13 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 let
   gb = import ../gruvbox.nix;
   hex = c: lib.removePrefix "#" c;
+  hyprsunset_osd = pkgs.writeShellScriptBin "hyprsunset-osd" ''
+    hyprctl hyprsunset temperature "$1"
+    kelvin=$(hyprctl hyprsunset temperature)
+    progress=$(awk -v k="$kelvin" 'BEGIN {printf "%.3f", (k - 1000) / 19000}')
+    swayosd-client --custom-progress "$progress" --custom-progress-text "''${kelvin}K"
+  '';
 in
 {
   wayland.windowManager.hyprland = {
@@ -218,8 +224,8 @@ in
         ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
         ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
-        "$mainMod, XF86MonBrightnessUp, exec, hyprctl hyprsunset temperature +500"
-        "$mainMod, XF86MonBrightnessDown, exec, hyprctl hyprsunset temperature -500"
+        "$mainMod, XF86MonBrightnessUp, exec, ${hyprsunset_osd}/bin/hyprsunset-osd +500"
+        "$mainMod, XF86MonBrightnessDown, exec, ${hyprsunset_osd}/bin/hyprsunset-osd -500"
       ];
 
       bindl = [
