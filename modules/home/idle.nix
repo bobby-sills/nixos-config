@@ -18,6 +18,19 @@ in
         }
       ];
 
+      label = [
+        {
+          monitor = "";
+          text = "cmd[update:1000] date +%H:%M";
+          font_size = 72;
+          font_family = vars.monoFont.name;
+          color = "rgb(${builtins.substring 1 6 gb.light1})";
+          position = "0, 80";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+
       input-field = [
         {
           monitor = "";
