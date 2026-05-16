@@ -247,7 +247,8 @@ in
 
       layerrule = [
         "animation fade, match:namespace swayosd"
-        "animation fade, match:namespace hyprshot"
+        "animation fade, match:namespace hyprpicker"
+        "animation fade, match:namespace selection"
       ];
 
       windowrule = [
