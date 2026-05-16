@@ -63,5 +63,6 @@
     nodejs
     lazygit
     jq
+    rustup
   ];
 }
