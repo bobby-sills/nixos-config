@@ -49,7 +49,6 @@ in
           rounding = 10;
           font_size = vars.monoFont.size * 2;
           font_family = vars.monoFont.name;
-          dots_text_format = "*";
           fade_on_empty = true;
           placeholder_text = "";
           fail_text = "<i>$FAIL ($ATTEMPTS)</i>";
