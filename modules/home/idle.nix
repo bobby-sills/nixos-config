@@ -33,7 +33,6 @@ in
 
       animations = {
         enabled = true;
-        animation = [ "inputFieldDots, 0, 0, linear" ];
       };
 
       input-field = [
