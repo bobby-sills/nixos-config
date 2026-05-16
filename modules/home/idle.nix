@@ -1,7 +1,7 @@
 { ... }:
 let
   gb = import ../gruvbox.nix;
-  vars = import ../vars.nix;
+  vars = import ../../vars.nix;
 in
 {
   services.batsignal.enable = true;
