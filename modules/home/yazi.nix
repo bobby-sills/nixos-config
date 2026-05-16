@@ -97,6 +97,7 @@ require("pref-by-location"):setup({})
         { on = [ "," "S" ]; run = [ "sort size --reverse=no" "linemode size" "plugin pref-by-location -- save" ]; desc = "Sort by size"; }
         { on = [ "," "s" ]; run = [ "sort size --reverse" "linemode size" "plugin pref-by-location -- save" ]; desc = "Sort by size (reverse)"; }
         { on = [ "," "r" ]; run = [ "sort random --reverse=no" "plugin pref-by-location -- save" ]; desc = "Sort randomly"; }
+        { on = [ "g" "b" ]; run = "cd ~/gdrive/books"; desc = "Go to ~/gdrive/books"; }
         { on = [ "g" "m" ]; run = "cd /mnt/media"; desc = "Go to /mnt/media"; }
         { on = [ "g" "v" ]; run = "cd ~/Videos"; desc = "Go to ~/Videos"; }
         { on = [ "g" "t" ]; run = "cd ~/.local/share/Trash/files"; desc = "Go to Trash"; }
