@@ -61,5 +61,6 @@
     musescore
     libnotify
     nodejs
+    lazygit
   ];
 }
