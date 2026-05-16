@@ -2,6 +2,9 @@
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "snd-intel-dspcfg.dsp_driver=3" ];
+
+  hardware.firmware = [ pkgs.sof-firmware ];
 
   services.getty.autologinUser = "bobby";
 
