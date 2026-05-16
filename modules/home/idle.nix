@@ -25,9 +25,9 @@ in
           font_size = 72;
           font_family = vars.monoFont.name;
           color = "rgb(${builtins.substring 1 6 gb.light1})";
-          position = "0, 80";
+          position = "0, -25%";
           halign = "center";
-          valign = "center";
+          valign = "top";
         }
       ];
 
@@ -37,11 +37,12 @@ in
           size = "250, 50";
           outline_thickness = 2;
           outer_color = "rgb(${builtins.substring 1 6 gb.bright_orange})";
-          inner_color = "rgb(${builtins.substring 1 6 gb.dark1})";
+          inner_color = "rgb(${builtins.substring 1 6 gb.dark0})";
           font_color = "rgb(${builtins.substring 1 6 gb.light1})";
           check_color = "rgb(${builtins.substring 1 6 gb.bright_orange})";
           fail_color = "rgb(${builtins.substring 1 6 gb.bright_red})";
           rounding = 10;
+          font_size = vars.monoFont.size * 2;
           font_family = vars.monoFont.name;
           fade_on_empty = true;
           placeholder_text = "";
