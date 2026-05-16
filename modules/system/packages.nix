@@ -60,6 +60,7 @@
     wev
     musescore
     libnotify
+    sioyek
     nodejs
     lazygit
     jq

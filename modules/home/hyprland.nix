@@ -115,10 +115,10 @@ in
           "windowsOut, 1, 3, md3_accel, popin 60%"
           "border, 1, 10, default"
           "fade, 1, 3, md3_decel"
-          # "layersIn, 1, 3, menu_decel"#, slide"
-          # "layersOut, 1, 1.6, menu_accel"
-          # "fadeLayersIn, 1, 2, menu_decel"
-          # "fadeLayersOut, 1, 4.5, menu_accel"
+          "layersIn, 1, 3, menu_decel, slide"
+          "layersOut, 1, 1.6, menu_accel"
+          "fadeLayersIn, 1, 2, menu_decel"
+          "fadeLayersOut, 1, 4.5, menu_accel"
           "workspaces, 1, 7, menu_decel, slide"
           "specialWorkspace, 1, 3, md3_decel, slidevert"
         ];
@@ -245,9 +245,9 @@ in
         "f[1], gapsout:0, gapsin:0"
       ];
 
-      # layerrule = [
-      #   "no_anim 1, match:namespace swayosd"
-      # ];
+      layerrule = [
+        "no_anim 1, match:namespace swayosd"
+      ];
 
       windowrule = [
         {
