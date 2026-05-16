@@ -44,6 +44,7 @@
     beeper
     pipes
     cbonsai
+    rclone
     unimatrix
     htop
     hyprsunset
