@@ -253,6 +253,13 @@ in
 
       windowrule = [
         {
+          name = "termfilechooser";
+          "match:title" = "termfilechooser";
+          float = true;
+          size = "(monitor_w*0.5) (monitor_h*0.5)";
+          center = true;
+        }
+        {
           name = "float-75";
           "match:class" = "float-75";
           float = true;
