@@ -66,5 +66,6 @@
     jq
     rustup
     gcc
+    imv
   ];
 }
