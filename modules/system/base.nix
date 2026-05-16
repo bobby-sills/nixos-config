@@ -2,9 +2,6 @@
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.blacklistedKernelModules = [ "snd_pci_ps" ];
-
-  hardware.firmware = [ pkgs.sof-firmware ];
 
   services.getty.autologinUser = "bobby";
 
