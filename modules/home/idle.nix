@@ -43,7 +43,7 @@ in
           outer_color = "rgb(${builtins.substring 1 6 gb.bright_orange})";
           inner_color = "rgb(${builtins.substring 1 6 gb.dark0})";
           font_color = "rgb(${builtins.substring 1 6 gb.light1})";
-          check_color = "rgb(${builtins.substring 1 6 gb.bright_orange})";
+          check_color = "rgb(${builtins.substring 1 6 gb.gray_245})";
           fail_color = "rgb(${builtins.substring 1 6 gb.bright_red})";
           rounding = 10;
           font_size = vars.monoFont.size * 2;
