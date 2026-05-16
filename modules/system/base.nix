@@ -23,6 +23,18 @@
     SUBSYSTEM=="leds", KERNEL=="platform::micmute", ACTION=="add", RUN+="${pkgs.coreutils}/bin/chmod 0666 /sys%p/brightness"
   '';
 
+  security.sudo.extraRules = [
+    {
+      users = [ "bobby" ];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/nixos-rebuild";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   services.keyd = {
     enable = true;
     keyboards.default = {
