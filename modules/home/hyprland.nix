@@ -2,6 +2,15 @@
 let
   gb = import ../gruvbox.nix;
   hex = c: lib.removePrefix "#" c;
+  micmute_toggle = pkgs.writeShellScriptBin "micmute-toggle" ''
+    wpctl set-mute @DEFAULT_SOURCE@ toggle
+    if wpctl get-volume @DEFAULT_SOURCE@ | grep -q MUTED; then
+      echo 1 > /sys/class/leds/platform::micmute/brightness
+    else
+      echo 0 > /sys/class/leds/platform::micmute/brightness
+    fi
+    swayosd-client --input-volume mute-toggle
+  '';
   hyprsunset_osd = pkgs.writeShellScriptBin "hyprsunset-osd" ''
     hyprctl hyprsunset temperature "$1"
     kelvin=$(hyprctl hyprsunset temperature)
@@ -221,7 +230,7 @@ in
         ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
         ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
         ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && swayosd-client --input-volume mute-toggle"
+        ",XF86AudioMicMute, exec, ${micmute_toggle}/bin/micmute-toggle"
         ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         "$mainMod, XF86MonBrightnessUp, exec, ${hyprsunset_osd}/bin/hyprsunset-osd -500"

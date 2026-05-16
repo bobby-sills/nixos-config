@@ -19,6 +19,10 @@
     pkgs.noto-fonts-cjk-sans
   ];
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="leds", KERNEL=="platform::micmute", ACTION=="add", RUN+="${pkgs.coreutils}/bin/chmod 0666 /sys%p/brightness"
+  '';
+
   services.keyd = {
     enable = true;
     keyboards.default = {
