@@ -224,8 +224,8 @@ in
         ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
         ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
-        "$mainMod, XF86MonBrightnessUp, exec, ${hyprsunset_osd}/bin/hyprsunset-osd +500"
-        "$mainMod, XF86MonBrightnessDown, exec, ${hyprsunset_osd}/bin/hyprsunset-osd -500"
+        "$mainMod, XF86MonBrightnessUp, exec, ${hyprsunset_osd}/bin/hyprsunset-osd -500"
+        "$mainMod, XF86MonBrightnessDown, exec, ${hyprsunset_osd}/bin/hyprsunset-osd +500"
       ];
 
       bindl = [
