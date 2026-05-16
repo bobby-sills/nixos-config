@@ -31,6 +31,11 @@ in
         }
       ];
 
+      animations = {
+        enabled = true;
+        animation = [ "inputFieldDots, 0, 0, linear" ];
+      };
+
       input-field = [
         {
           monitor = "";
@@ -44,6 +49,7 @@ in
           rounding = 10;
           font_size = vars.monoFont.size * 2;
           font_family = vars.monoFont.name;
+          dots_text_format = "*";
           fade_on_empty = true;
           placeholder_text = "";
           fail_text = "<i>$FAIL ($ATTEMPTS)</i>";

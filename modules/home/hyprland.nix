@@ -159,10 +159,10 @@ in
         "$mainMod SHIFT, Escape, exec, systemctl suspend"
 
         "$mainMod, R, layoutmsg, togglesplit"
-        "$mainMod SHIFT CTRL, H, swapwindow, l"
-        "$mainMod SHIFT CTRL, J, swapwindow, d"
-        "$mainMod SHIFT CTRL, K, swapwindow, u"
-        "$mainMod SHIFT CTRL, L, swapwindow, r"
+        "$mainMod CTRL, H, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive -40 0 || hyprctl dispatch swapwindow l\""
+        "$mainMod CTRL, J, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive 0 40 || hyprctl dispatch swapwindow d\""
+        "$mainMod CTRL, K, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive 0 -40 || hyprctl dispatch swapwindow u\""
+        "$mainMod CTRL, L, exec, bash -c \"hyprctl activewindow | grep -q 'floating: 1' && hyprctl dispatch moveactive 40 0 || hyprctl dispatch swapwindow r\""
         "$mainMod, H, movefocus, l"
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
@@ -215,10 +215,6 @@ in
         "$mainMod SHIFT, J, resizeactive, 0 40"
         "$mainMod SHIFT, K, resizeactive, 0 -40"
         "$mainMod SHIFT, L, resizeactive, 40 0"
-        "$mainMod CTRL, H, moveactive, -40 0"
-        "$mainMod CTRL, J, moveactive, 0 40"
-        "$mainMod CTRL, K, moveactive, 0 -40"
-        "$mainMod CTRL, L, moveactive, 40 0"
       ];
 
       bindm = [
