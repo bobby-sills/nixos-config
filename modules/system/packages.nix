@@ -17,6 +17,7 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
+    gimp
     vim
     wget
     foot
