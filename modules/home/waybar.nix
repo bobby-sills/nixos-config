@@ -18,6 +18,7 @@ in
       "hyprland/workspaces" = {
         format = "{id}";
         on-click = "activate";
+	show-special = true;
       };
 
       "hyprland/window" = {
