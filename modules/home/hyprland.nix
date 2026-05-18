@@ -12,6 +12,9 @@ let
     fi
     swayosd-client --input-volume mute-toggle
   '';
+  wshowkeys_toggle = pkgs.writeShellScriptBin "wshowkeys-toggle" ''
+    pkill wshowkeys || wshowkeys -a bottom -F "${vars.monoFont.name} 20" -b "${gb.dark0}dd" -f "${gb.light1}ff" -s "${gb.bright_orange}ff"
+  '';
   hyprsunset_osd = pkgs.writeShellScriptBin "hyprsunset-osd" ''
     hyprctl hyprsunset temperature "$1"
     kelvin=$(hyprctl hyprsunset temperature)
@@ -201,7 +204,7 @@ in
         "$mainMod, U, exec, case $(powerprofilesctl get) in power-saver) powerprofilesctl set balanced;; balanced) powerprofilesctl set performance;; performance) powerprofilesctl set power-saver;; esac"
         "$mainMod, F, fullscreenstate, 0, 2"
         "$mainMod SHIFT, F, fullscreen, 0"
-        "$mainMod, I, exec, pkill wshowkeys || wshowkeys -a bottom -F '${vars.monoFont.name} 20' -b '${gb.dark0}dd' -f '${gb.light1}ff' -s '${gb.bright_orange}ff'"
+        "$mainMod, I, exec, ${wshowkeys_toggle}/bin/wshowkeys-toggle"
         "$mainMod, E, exec, bemoji"
         "$mainMod, comma, exec, playerctl previous"
         "$mainMod, period, exec, playerctl next"
