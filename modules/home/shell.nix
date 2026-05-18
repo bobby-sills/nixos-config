@@ -61,6 +61,8 @@ programs.bash.profileExtra = ''
       unimatrix = "unimatrix -c green -b -s 96 -l o";
       ls = "eza --icons=always";
       hl = "hledger -f ~/finance/main.journal --pretty";
+      lg = "lazygit";
+      r = "rebuild";
     };
     initExtra = ''
       export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
