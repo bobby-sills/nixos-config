@@ -15,7 +15,7 @@ let
   wshowkeys_toggle = pkgs.writeShellScriptBin "wshowkeys-toggle" ''
     exec >> /tmp/wshowkeys.log 2>&1
     set -x
-    pkill -x wshowkeys || wshowkeys -a bottom -F "Iosevka Nerd Font 20" -b "#282828dd" -f "#ebdbb2ff" -s "#fe8019ff"
+    pkill -x wshowkeys || wshowkeys -a bottom -F "${vars.monoFont.name} 20" -b "${gb.dark0}dd" -f "${gb.light1}ff" -s "${gb.bright_orange}ff"
   '';
   hyprsunset_osd = pkgs.writeShellScriptBin "hyprsunset-osd" ''
     hyprctl hyprsunset temperature "$1"
