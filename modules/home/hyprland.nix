@@ -200,7 +200,7 @@ in
         "$mainMod, U, exec, case $(powerprofilesctl get) in power-saver) powerprofilesctl set balanced;; balanced) powerprofilesctl set performance;; performance) powerprofilesctl set power-saver;; esac"
         "$mainMod, F, fullscreenstate, 0, 2"
         "$mainMod SHIFT, F, fullscreen, 0"
-        "$mainMod, I, exec, showmethekey-mgr toggle"
+        "$mainMod, I, exec, pkill wshowkeys || wshowkeys"
         "$mainMod, E, exec, bemoji"
         "$mainMod, comma, exec, playerctl previous"
         "$mainMod, period, exec, playerctl next"
@@ -311,13 +311,7 @@ in
           border_size = 0;
           rounding = 0;
         }
-        {
-          name = "showmethekey";
-          "match:class" = "showmethekey-gtk";
-          float = true;
-          pin = true;
-          move = "(monitor_w*0.5 - 210) (monitor_h - 200)";
-        }
+
       ];
 
     };

@@ -69,6 +69,6 @@
     rustup
     gcc
     imv
-    showmethekey
+    wshowkeys
   ];
 }
