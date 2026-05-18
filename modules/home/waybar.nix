@@ -16,7 +16,7 @@ in
       modules-right = [ "network" "cpu" "power-profiles-daemon" "battery" "clock" "tray" ];
 
       "hyprland/workspaces" = {
-        format = "{id}";
+        format = "{name}";
         on-click = "activate";
 	show-special = true;
       };
