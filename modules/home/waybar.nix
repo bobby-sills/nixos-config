@@ -146,6 +146,10 @@ in
         background: transparent;
       }
 
+      #workspaces button.special {
+        margin-left: 10px;
+      }
+
       #workspaces button.active {
         background-color: @light1;
         color: @bg;
