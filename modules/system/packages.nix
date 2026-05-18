@@ -10,6 +10,13 @@
     ];
   };
 
+  security.wrappers.wshowkeys = {
+    owner = "root";
+    group = "root";
+    setuid = true;
+    source = "${pkgs.wshowkeys}/bin/wshowkeys";
+  };
+
   services.power-profiles-daemon.enable = true;
 
   programs.firefox.enable = true;
