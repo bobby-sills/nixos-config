@@ -77,5 +77,6 @@
     gcc
     imv
     wshowkeys
+    kdenlive
   ];
 }
