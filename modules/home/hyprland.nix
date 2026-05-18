@@ -13,7 +13,11 @@ let
     swayosd-client --input-volume mute-toggle
   '';
   wshowkeys_toggle = pkgs.writeShellScriptBin "wshowkeys-toggle" ''
-    pkill wshowkeys || wshowkeys -a bottom -F "${vars.monoFont.name} 20" -b "${gb.dark0}dd" -f "${gb.light1}ff" -s "${gb.bright_orange}ff"
+    exec >> /tmp/wshowkeys.log 2>&1
+    echo "--- $(date) ---"
+    echo "PATH=$PATH"
+    echo "WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
+    pkill wshowkeys && echo "killed existing" || { echo "launching wshowkeys"; wshowkeys -a bottom -F "${vars.monoFont.name} 20" -b "${gb.dark0}dd" -f "${gb.light1}ff" -s "${gb.bright_orange}ff"; }
   '';
   hyprsunset_osd = pkgs.writeShellScriptBin "hyprsunset-osd" ''
     hyprctl hyprsunset temperature "$1"
