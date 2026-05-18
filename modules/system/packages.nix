@@ -77,6 +77,6 @@
     gcc
     imv
     wshowkeys
-    kdenlive
+    kdePackages.kdenlive
   ];
 }
