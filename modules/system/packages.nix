@@ -84,5 +84,6 @@
     imv
     wshowkeys
     kdePackages.kdenlive
+    guvcview
   ];
 }

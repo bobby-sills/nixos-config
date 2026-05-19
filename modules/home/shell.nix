@@ -91,4 +91,9 @@ programs.bash.profileExtra = ''
       sub-langs = "en,en-orig";
     };
   };
+
+  xdg.configFile."gdu/gdu.yaml".text = ''
+    ignore-dirs:
+      - /home/bobby/gdrive
+  '';
 }
