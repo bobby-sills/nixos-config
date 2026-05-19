@@ -1,0 +1,49 @@
+{ pkgs, inputs, ... }:
+{
+  home.packages = with pkgs; [
+    gimp
+    foot
+    eza
+    claude-code
+    bemoji
+    gdu
+    sl
+    ttyper
+    hyprshot
+    mpv
+    bluetui
+    impala
+    ripgrep
+    gh
+    python3
+    inputs.helium-nix.packages.x86_64-linux.default
+    beeper
+    pipes
+    cbonsai
+    rclone
+    unimatrix
+    hyprsunset
+    deno
+    ffmpeg
+    fastfetch
+    google-chrome
+    hledger
+    playerctl
+    xournalpp
+    anki
+    swayosd
+    wev
+    musescore
+    libnotify
+    sioyek
+    nodejs
+    lazygit
+    jq
+    rustup
+    gcc
+    imv
+    kdePackages.kdenlive
+    guvcview
+    zathura
+  ];
+}

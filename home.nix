@@ -14,6 +14,7 @@
     ./modules/home/spotify-player.nix
     ./modules/home/swayosd.nix
     ./modules/home/rclone.nix
+    ./modules/home/packages.nix
   ];
 
   home.username = "bobby";
