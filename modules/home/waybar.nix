@@ -13,7 +13,7 @@ in
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "network" "cpu" "power-profiles-daemon" "battery" "clock" "tray" ];
+      modules-right = [ "network" "cpu" "power-profiles-daemon" "battery" "clock" "idle_inhibitor" "tray" ];
 
       "hyprland/workspaces" = {
         format = "{name}";
@@ -80,6 +80,14 @@ in
           performance = "󰓅";
           balanced = "󰾅";
           power-saver = "󰾆";
+        };
+      };
+
+      "idle_inhibitor" = {
+        format = "{icon}";
+        format-icons = {
+          activated = " ";
+          deactivated = "";
         };
       };
 
@@ -171,6 +179,7 @@ in
       #network,
       #pulseaudio,
       #power-profiles-daemon,
+      #idle_inhibitor,
       #tray {
         padding: 0 16px;
         color: @light1;
@@ -195,6 +204,8 @@ in
 
       #pulseaudio { color: @light1; }
       #pulseaudio.muted { color: @gray; }
+
+      #idle_inhibitor.activated { color: @bright_yellow; }
 
       #tray { color: @bright_blue; }
       #tray > .passive { -gtk-icon-effect: dim; }
