@@ -37,14 +37,14 @@ in
       "$mainMod" = "SUPER";
 
       exec-once = [
-        "hyprctl setcursor Adwaita 24"
+        "hyprctl setcursor macOS 24"
         "waybar"
         "hyprsunset"
         "swayosd-server"
       ];
 
       env = [
-        "XCURSOR_THEME,Adwaita"
+        "XCURSOR_THEME,macOS"
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
         "XDG_DATA_DIRS,/run/current-system/sw/share:$HOME/.nix-profile/share:$XDG_DATA_DIRS"

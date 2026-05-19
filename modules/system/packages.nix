@@ -19,12 +19,6 @@
 
   services.power-profiles-daemon.enable = true;
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-rocm;
-    rocmOverrideGfx = "11.0.3";
-  };
-
   programs.firefox.enable = true;
 
   programs.obs-studio.enable = true;
@@ -85,5 +79,6 @@
     wshowkeys
     kdePackages.kdenlive
     guvcview
+    zathura
   ];
 }

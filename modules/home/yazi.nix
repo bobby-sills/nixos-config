@@ -109,11 +109,13 @@ require("pref-by-location"):setup({})
         video = [{ run = ''mpv "$@"''; orphan = true; }];
         audio = [{ run = ''mpv "$@"''; orphan = true; }];
         image = [{ run = ''imv "$@"''; orphan = true; }];
+        pdf = [{ run = ''sioyek "$@"''; orphan = true; }];
       };
       open.rules = [
         { mime = "video/*"; use = "video"; }
         { mime = "audio/*"; use = "audio"; }
         { mime = "image/*"; use = "image"; }
+        { mime = "application/pdf"; use = "pdf"; }
       ];
     };
   };
