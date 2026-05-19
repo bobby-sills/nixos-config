@@ -67,6 +67,7 @@ programs.bash.profileExtra = ''
     initExtra = ''
       export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
       export GTK_USE_PORTAL=1
+      export FZF_CTRL_T_COMMAND="find . -not \( -path '*/gdrive*' -prune \) -type f 2>/dev/null"
       nordvpn() {
         command nordvpn "$@" | grep -v "A new version of NordVPN is available!" | grep -v "Please update the app."
       }
