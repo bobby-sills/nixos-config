@@ -43,7 +43,8 @@
     gcc
     imv
     kdePackages.kdenlive
-    guvcview
     zathura
+    cheese
+    ollama
   ];
 }
