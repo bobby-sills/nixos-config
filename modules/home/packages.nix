@@ -46,5 +46,6 @@
     zathura
     cheese
     ollama
+    terminaltexteffects
   ];
 }
