@@ -184,7 +184,7 @@ in
       }
 
       #custom-idle_inhibitor { padding: 0; }
-      #custom-idle_inhibitor.activated { padding: 0 16px; color: @bright_yellow; }
+      #custom-idle_inhibitor.activated { padding: 0 16px; color: @faded_orange; }
 
       #power-profiles-daemon.performance { color: @bright_red; }
       #power-profiles-daemon.balanced { color: @bright_green; }
