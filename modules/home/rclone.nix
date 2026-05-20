@@ -11,8 +11,6 @@
       ExecStop = "${pkgs.fuse3}/bin/fusermount3 -u %h/gdrive";
       Restart = "on-failure";
     };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
+    Install = {};
   };
 }
