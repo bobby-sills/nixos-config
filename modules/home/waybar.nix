@@ -96,19 +96,6 @@ in
     }];
 
     style = ''
-      @define-color dark0 ${gb.dark0};
-      @define-color bg alpha(@dark0, 0.96);
-      @define-color dark1 ${gb.dark1};
-      @define-color light1 ${gb.light1};
-      @define-color light4 ${gb.light4};
-      @define-color gray ${gb.gray_245};
-      @define-color bright_red ${gb.bright_red};
-      @define-color bright_green ${gb.bright_green};
-      @define-color bright_yellow ${gb.bright_yellow};
-      @define-color bright_blue ${gb.bright_blue};
-      @define-color bright_aqua ${gb.bright_aqua};
-      @define-color bright_orange ${gb.bright_orange};
-
       * {
         font-family: "${monoFont.name}", monospace;
         font-size: ${toString (monoFont.size * 4 / 3)}px;
@@ -117,15 +104,15 @@ in
       }
 
       window#waybar {
-        background-color: @bg;
-        color: @light1;
+        background-color: alpha(${gb.dark0}, 0.96);
+        color: ${gb.light1};
         padding-bottom: 2px;
       }
 
       tooltip,
       menu {
-        background-color: @bg;
-        color: @light1;
+        background-color: alpha(${gb.dark0}, 0.96);
+        color: ${gb.light1};
       }
 
       button {
@@ -135,7 +122,7 @@ in
 
       button:hover {
         background: inherit;
-        box-shadow: inset 0 -3px @light1;
+        box-shadow: inset 0 -3px ${gb.light1};
       }
 
       #workspaces {
@@ -145,7 +132,7 @@ in
       #workspaces button {
         padding: 0 5px;
         background-color: transparent;
-        color: @light1;
+        color: ${gb.light1};
         transition: none;
       }
 
@@ -158,17 +145,17 @@ in
       }
 
       #workspaces button.active {
-        background-color: @light1;
-        color: @bg;
+        background-color: ${gb.light1};
+        color: alpha(${gb.dark0}, 0.96);
       }
 
       #workspaces button.urgent {
-        color: @bright_red;
+        color: ${gb.bright_red};
       }
 
       #window {
         margin: 0 4px;
-        color: @light1;
+        color: ${gb.light1};
       }
 
       #clock,
@@ -180,37 +167,37 @@ in
       #power-profiles-daemon,
       #tray {
         padding: 0 16px;
-        color: @light1;
+        color: ${gb.light1};
       }
 
       #custom-idle_inhibitor { padding: 0; }
-      #custom-idle_inhibitor.activated { padding: 0 16px; color: @faded_orange; }
+      #custom-idle_inhibitor.activated { padding: 0 16px; color: ${gb.faded_orange}; }
 
-      #power-profiles-daemon.performance { color: @bright_red; }
-      #power-profiles-daemon.balanced { color: @bright_green; }
-      #power-profiles-daemon.power-saver { color: @bright_blue; }
+      #power-profiles-daemon.performance { color: ${gb.bright_red}; }
+      #power-profiles-daemon.balanced { color: ${gb.bright_green}; }
+      #power-profiles-daemon.power-saver { color: ${gb.bright_blue}; }
 
-      #clock { color: @light1; }
+      #clock { color: ${gb.light1}; }
 
-      #battery.charging, #battery.full { color: @bright_green; }
-      #battery.warning:not(.charging) { color: @bright_yellow; }
-      #battery.critical:not(.charging) { color: @bright_red; }
+      #battery.charging, #battery.full { color: ${gb.bright_green}; }
+      #battery.warning:not(.charging) { color: ${gb.bright_yellow}; }
+      #battery.critical:not(.charging) { color: ${gb.bright_red}; }
 
-      #cpu { color: @bright_red; }
+      #cpu { color: ${gb.bright_red}; }
 
-      #memory { color: @bright_aqua; }
+      #memory { color: ${gb.bright_aqua}; }
 
-      #network { color: @light1; }
-      #network.disconnected { color: @bright_red; }
+      #network { color: ${gb.light1}; }
+      #network.disconnected { color: ${gb.bright_red}; }
 
-      #pulseaudio { color: @light1; }
-      #pulseaudio.muted { color: @gray; }
+      #pulseaudio { color: ${gb.light1}; }
+      #pulseaudio.muted { color: ${gb.gray_245}; }
 
-      #tray { color: @bright_blue; }
+      #tray { color: ${gb.bright_blue}; }
       #tray > .passive { -gtk-icon-effect: dim; }
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
-        color: @bright_red;
+        color: ${gb.bright_red};
       }
     '';
   };
