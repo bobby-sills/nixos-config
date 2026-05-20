@@ -23,8 +23,39 @@ let
     progress=$(awk -v k="$kelvin" 'BEGIN {printf "%.3f", (k - 1000) / 19000}')
     swayosd-client --custom-progress "$progress" --custom-icon "night-light-symbolic"
   '';
+  idle_inhibitor = pkgs.writeShellScriptBin "idle-inhibitor" ''
+    PIDFILE="/tmp/idle-inhibitor.pid"
+    ICON=$''
+
+    toggle() {
+      if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+        kill "$(cat "$PIDFILE")"
+        rm -f "$PIDFILE"
+      else
+        systemd-inhibit --what=idle --who="idle-inhibitor" --why="User requested" sleep infinity &
+        echo $! >"$PIDFILE"
+      fi
+      pkill -RTMIN+9 waybar
+    }
+
+    status() {
+      if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+        echo "{\"text\": \"$ICON \", \"class\": \"activated\"}"
+      else
+        echo '{"text": "", "class": "deactivated"}'
+      fi
+    }
+
+    case "$1" in
+    toggle) toggle ;;
+    status) status ;;
+    *) status ;;
+    esac
+  '';
 in
 {
+  home.packages = [ idle_inhibitor ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -207,6 +238,7 @@ in
         "$mainMod, F, fullscreenstate, 0, 2"
         "$mainMod SHIFT, F, fullscreen, 0"
         "$mainMod, I, exec, ${wshowkeys_toggle}/bin/wshowkeys-toggle"
+        "$mainMod SHIFT, I, exec, ${idle_inhibitor}/bin/idle-inhibitor toggle"
         "$mainMod, E, exec, bemoji"
         "$mainMod, comma, exec, playerctl previous"
         "$mainMod, period, exec, playerctl next"

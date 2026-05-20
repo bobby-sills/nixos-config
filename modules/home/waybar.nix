@@ -12,8 +12,7 @@ in
       spacing = 0;
 
       modules-left = [ "hyprland/workspaces" ];
-      modules-center = [ "hyprland/window" ];
-      modules-right = [ "network" "cpu" "power-profiles-daemon" "battery" "clock" "idle_inhibitor" "tray" ];
+      modules-right = [ "network" "cpu" "power-profiles-daemon" "battery" "clock" "custom/idle_inhibitor" "tray" ];
 
       "hyprland/workspaces" = {
         format = "{name}";
@@ -83,12 +82,12 @@ in
         };
       };
 
-      "idle_inhibitor" = {
-        format = "{icon}";
-        format-icons = {
-          activated = " ";
-          deactivated = "";
-        };
+      "custom/idle_inhibitor" = {
+        exec = "idle-inhibitor status";
+        return-type = "json";
+        interval = 2;
+        signal = 9;
+        on-click = "idle-inhibitor toggle";
       };
 
       tray = {
@@ -179,11 +178,13 @@ in
       #network,
       #pulseaudio,
       #power-profiles-daemon,
-      #idle_inhibitor,
       #tray {
         padding: 0 16px;
         color: @light1;
       }
+
+      #custom-idle_inhibitor { padding: 0; }
+      #custom-idle_inhibitor.activated { padding: 0 16px; color: @bright_yellow; }
 
       #power-profiles-daemon.performance { color: @bright_red; }
       #power-profiles-daemon.balanced { color: @bright_green; }
@@ -204,8 +205,6 @@ in
 
       #pulseaudio { color: @light1; }
       #pulseaudio.muted { color: @gray; }
-
-      #idle_inhibitor.activated { color: @bright_yellow; }
 
       #tray { color: @bright_blue; }
       #tray > .passive { -gtk-icon-effect: dim; }
