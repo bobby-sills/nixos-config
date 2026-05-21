@@ -17,7 +17,7 @@ let
   '';
   idle_inhibitor = pkgs.writeShellScriptBin "idle-inhibitor" ''
     PIDFILE="/tmp/idle-inhibitor.pid"
-    ICON=$''
+    ICON=
 
     toggle() {
       if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
