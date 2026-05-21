@@ -80,6 +80,7 @@ in
         "XDG_DATA_DIRS,/run/current-system/sw/share:$HOME/.nix-profile/share:$XDG_DATA_DIRS"
         "QT_QPA_PLATFORM,wayland"
         "GDK_SCALE,1.25"
+        "QT_SCALE_FACTOR,1.25"
       ];
 
       general = {
