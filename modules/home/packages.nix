@@ -1,6 +1,9 @@
 { pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
+    nudoku
+    2048
+    myman
     tetris
     gimp
     foot
