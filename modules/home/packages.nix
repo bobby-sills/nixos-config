@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     nudoku
-    c-2048
+    2048-cli
     myman
     tetris
     gimp
