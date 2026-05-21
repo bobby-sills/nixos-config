@@ -1,56 +1,10 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 let
   gb = import ../gruvbox.nix;
   vars = import ../../vars.nix;
   hex = c: lib.removePrefix "#" c;
-  micmute_toggle = pkgs.writeShellScriptBin "micmute-toggle" ''
-    wpctl set-mute @DEFAULT_SOURCE@ toggle
-    if wpctl get-volume @DEFAULT_SOURCE@ | grep -q MUTED; then
-      echo 1 > /sys/class/leds/platform::micmute/brightness
-    else
-      echo 0 > /sys/class/leds/platform::micmute/brightness
-    fi
-    swayosd-client --input-volume mute-toggle
-  '';
-  hyprsunset_osd = pkgs.writeShellScriptBin "hyprsunset-osd" ''
-    hyprctl hyprsunset temperature "$1"
-    kelvin=$(hyprctl hyprsunset temperature)
-    progress=$(awk -v k="$kelvin" 'BEGIN {printf "%.3f", (k - 1000) / 19000}')
-    swayosd-client --custom-progress "$progress" --custom-icon "night-light-symbolic"
-  '';
-  idle_inhibitor = pkgs.writeShellScriptBin "idle-inhibitor" ''
-    PIDFILE="/tmp/idle-inhibitor.pid"
-    ICON=$''
-
-    toggle() {
-      if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
-        kill "$(cat "$PIDFILE")"
-        rm -f "$PIDFILE"
-      else
-        systemd-inhibit --what=idle --who="idle-inhibitor" --why="User requested" sleep infinity &
-        echo $! >"$PIDFILE"
-      fi
-      pkill -RTMIN+9 waybar
-    }
-
-    status() {
-      if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
-        echo "{\"text\": \"$ICON \", \"class\": \"activated\"}"
-      else
-        echo '{"text": "", "class": "deactivated"}'
-      fi
-    }
-
-    case "$1" in
-    toggle) toggle ;;
-    status) status ;;
-    *) status ;;
-    esac
-  '';
 in
 {
-  home.packages = [ idle_inhibitor ];
-
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -238,7 +192,7 @@ in
         "$mainMod, U, exec, case $(powerprofilesctl get) in power-saver) powerprofilesctl set balanced;; balanced) powerprofilesctl set performance;; performance) powerprofilesctl set power-saver;; esac"
         "$mainMod, F, fullscreenstate, 0, 2"
         "$mainMod SHIFT, F, fullscreen, 0"
-"$mainMod SHIFT, I, exec, ${idle_inhibitor}/bin/idle-inhibitor toggle"
+        "$mainMod SHIFT, I, exec, idle-inhibitor toggle"
         "$mainMod, E, exec, bemoji"
         "$mainMod, comma, exec, playerctl previous"
         "$mainMod, period, exec, playerctl next"
@@ -265,11 +219,11 @@ in
         ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
         ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
         ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
-        ",XF86AudioMicMute, exec, ${micmute_toggle}/bin/micmute-toggle"
+        ",XF86AudioMicMute, exec, micmute-toggle"
         ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
-        "$mainMod, XF86MonBrightnessUp, exec, ${hyprsunset_osd}/bin/hyprsunset-osd -500"
-        "$mainMod, XF86MonBrightnessDown, exec, ${hyprsunset_osd}/bin/hyprsunset-osd +500"
+        "$mainMod, XF86MonBrightnessUp, exec, hyprsunset-osd -500"
+        "$mainMod, XF86MonBrightnessDown, exec, hyprsunset-osd +500"
       ];
 
       bindl = [
@@ -349,7 +303,6 @@ in
           border_size = 0;
           rounding = 0;
         }
-
       ];
 
     };
@@ -373,76 +326,6 @@ in
       bind = , W, submap, reset
       bind = , P, exec, [workspace special:spotify silent; float; size (monitor_w*0.5) (monitor_h*0.5); center] kitty -e spotify_player
       bind = , P, submap, reset
-      bind = , escape, submap, reset
-      submap = reset
-
-      bind = $mainMod SHIFT, P, submap, power_menu
-
-      submap = power_menu
-      bind = , s, submap, sd_h
-      bind = , r, submap, rb_e
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = sd_h
-      bind = , h, submap, sd_u
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = sd_u
-      bind = , u, submap, sd_t
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = sd_t
-      bind = , t, submap, sd_d
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = sd_d
-      bind = , d, submap, sd_o
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = sd_o
-      bind = , o, submap, sd_w
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = sd_w
-      bind = , w, submap, sd_n
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = sd_n
-      bind = , n, exec, systemctl poweroff
-      bind = , n, submap, reset
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = rb_e
-      bind = , e, submap, rb_b
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = rb_b
-      bind = , b, submap, rb_o1
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = rb_o1
-      bind = , o, submap, rb_o2
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = rb_o2
-      bind = , o, submap, rb_t
-      bind = , escape, submap, reset
-      submap = reset
-
-      submap = rb_t
-      bind = , t, exec, systemctl reboot
-      bind = , t, submap, reset
       bind = , escape, submap, reset
       submap = reset
     '';

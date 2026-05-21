@@ -1,6 +1,55 @@
 { pkgs, ... }:
+let
+  micmute_toggle = pkgs.writeShellScriptBin "micmute-toggle" ''
+    wpctl set-mute @DEFAULT_SOURCE@ toggle
+    if wpctl get-volume @DEFAULT_SOURCE@ | grep -q MUTED; then
+      echo 1 > /sys/class/leds/platform::micmute/brightness
+    else
+      echo 0 > /sys/class/leds/platform::micmute/brightness
+    fi
+    swayosd-client --input-volume mute-toggle
+  '';
+  hyprsunset_osd = pkgs.writeShellScriptBin "hyprsunset-osd" ''
+    hyprctl hyprsunset temperature "$1"
+    kelvin=$(hyprctl hyprsunset temperature)
+    progress=$(awk -v k="$kelvin" 'BEGIN {printf "%.3f", (k - 1000) / 19000}')
+    swayosd-client --custom-progress "$progress" --custom-icon "night-light-symbolic"
+  '';
+  idle_inhibitor = pkgs.writeShellScriptBin "idle-inhibitor" ''
+    PIDFILE="/tmp/idle-inhibitor.pid"
+    ICON=$''
+
+    toggle() {
+      if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+        kill "$(cat "$PIDFILE")"
+        rm -f "$PIDFILE"
+      else
+        systemd-inhibit --what=idle --who="idle-inhibitor" --why="User requested" sleep infinity &
+        echo $! >"$PIDFILE"
+      fi
+      pkill -RTMIN+9 waybar
+    }
+
+    status() {
+      if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+        echo "{\"text\": \"$ICON \", \"class\": \"activated\"}"
+      else
+        echo '{"text": "", "class": "deactivated"}'
+      fi
+    }
+
+    case "$1" in
+    toggle) toggle ;;
+    status) status ;;
+    *) status ;;
+    esac
+  '';
+in
 {
   home.packages = [
+    micmute_toggle
+    hyprsunset_osd
+    idle_inhibitor
     (pkgs.writeShellScriptBin "rebuild" ''
       set -e
       cd ~/nixos-config
