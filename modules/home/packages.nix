@@ -47,5 +47,6 @@
     cheese
     ollama
     terminaltexteffects
+    nsnake
   ];
 }
