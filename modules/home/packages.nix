@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
-    tint
+    tetris
     gimp
     foot
     eza
