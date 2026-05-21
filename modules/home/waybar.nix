@@ -173,7 +173,7 @@ in
       #custom-idle_inhibitor { padding: 0; }
       #custom-idle_inhibitor.activated { padding: 0 16px; color: ${gb.bright_orange}; }
 
-      #power-profiles-daemon.performance { color: ${gb.bright_red}; }
+      #power-profiles-daemon.performance { color: ${gb.bright_yellow}; }
       #power-profiles-daemon.balanced { color: ${gb.bright_green}; }
       #power-profiles-daemon.power-saver { color: ${gb.bright_blue}; }
 
@@ -183,7 +183,7 @@ in
       #battery.warning:not(.charging) { color: ${gb.bright_yellow}; }
       #battery.critical:not(.charging) { color: ${gb.bright_red}; }
 
-      #cpu { color: ${gb.bright_red}; }
+      #cpu { color: ${gb.bright_purple}; }
 
       #memory { color: ${gb.bright_aqua}; }
 
