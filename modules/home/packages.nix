@@ -52,5 +52,6 @@
     ollama
     terminaltexteffects
     nsnake
+    nix-search-tv
   ];
 }
